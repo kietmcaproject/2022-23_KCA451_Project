@@ -1,4 +1,4 @@
-# **Gesture-Control-Advancements**
+# **Gesture Control Advancements**
 >*Master's major project.*
 
 >*Project members: Srishty Singh(https://www.github.com/srishty-singh2k), Raj Pratap Singh(https://www.github.com/workingpayload)*

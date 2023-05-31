@@ -1,0 +1,50 @@
+version: "3.1"
+
+stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: utter_help
+
+  - story: ask name
+    steps:
+      - intent: ask_name
+      - action: utter_name
+
+  - story: fees enquiry
+    steps:
+      - intent: fee_structure
+      - action: action_utter_fees
+
+  - story: miscellaneous fees enquiry details
+    steps:
+      - intent: fee_misc
+      - action: utter_fees_misc
+
+  - story: fees enquiry with greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: fee_structure
+      - action: action_utter_fees
+
+  - story: admission enquiry
+    steps:
+      - intent: admission_process
+      - action: utter_admission_process
+
+  - story: hod enquiry
+    steps:
+      - intent: hod
+      - action: action_utter_hod
+
+  - story: placement enquiry
+    steps:
+      - intent: placement
+      - action: utter_placement
+
+  - story: random questions
+    steps:
+      - intent: random
+      - action: utter_random

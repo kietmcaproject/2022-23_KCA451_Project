@@ -1,0 +1,155 @@
+/* for desktop screens */
+body {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 18px;
+  border-radius: 10px;
+  height: 600px;
+  width: 350px;
+}
+
+.chats-div {
+  margin: 10px;
+}
+
+.query-div {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.query-bubble {
+  width: fit-content;
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(0, 137, 235);
+  color: white;
+}
+
+.reply-div {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.reply-bubble {
+  width: fit-content;
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(210, 249, 227);
+  color: black;
+}
+
+#input-div {
+  position: fixed;
+  display: flex;
+  bottom: 0px;
+  padding: 10px 10px 10px 10px;
+  justify-content: space-between;
+  width: 330px;
+  background-color: white;
+}
+
+#msg-input {
+  padding: 10px;
+  color: black;
+  font-size: 18px;
+  width: 70%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#msg-input:focus {
+  outline-color: blue;
+}
+
+#send-button {
+  padding: 10px;
+  height: min-content;
+  font-size: 20px;
+  background-color: rgb(21, 130, 255);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* for mobile screens */
+@media only screen and (max-width: 600px) {
+  body {
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .chats-div {
+    height: 70%;
+    margin: 10px;
+  }
+
+  .query-div {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .query-bubble {
+    width: fit-content;
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(0, 137, 235);
+    color: white;
+  }
+
+  .reply-div {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .reply-bubble {
+    width: fit-content;
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(210, 249, 227);
+    color: black;
+  }
+
+  #input-div {
+    position: fixed;
+    display: flex;
+    max-width: 100%;
+    bottom: 0px;
+    padding-left: 20px;
+    justify-content: space-between;
+    background-color: white;
+  }
+
+  #msg-input {
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  #msg-input:focus {
+    outline-color: blue;
+  }
+
+  #send-button {
+    padding: 10px;
+    height: min-content;
+    font-size: 20px;
+    background-color: rgb(21, 130, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+}

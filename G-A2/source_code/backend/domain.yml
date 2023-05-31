@@ -1,0 +1,68 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - fee_structure
+  - fee_misc
+  - admission_process
+  - hod
+  - placement
+  - random
+  - ask_name
+
+slots:
+  course:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: course
+
+  department:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: department
+
+entities:
+  - course
+  - department
+
+actions:
+  - action_utter_fees
+  - action_utter_hod
+
+responses:
+  utter_greet:
+    - text: "Hello!"
+    - text: "Hi, there!"
+    - text: "Hi!"
+
+  utter_goodbye:
+    - text: "Bye"
+    - text: "Bye! Take care!"
+    - text: "See you soon!"
+
+  utter_help:
+    - text: "How can I help you?"
+
+  utter_fees_misc:
+    - text: "Sorry, thesedetails have not been added yet."
+
+  utter_admission_process:
+    - text: "Admission can be taken in two ways - Direct Admission and Attempting the CUET exam"
+
+  utter_placement:
+    - text: "KIET Group of Institutions has the best placements in Delhi NCR."
+
+  utter_random:
+    - text: "I have not been trained to answer that."
+
+  utter_name:
+    - text: "I am Bot."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

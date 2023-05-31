@@ -1,0 +1,193 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+
+  - intent: ask_name
+    examples: |
+      - what is your name
+      - who are you
+      - who is you
+      - tell your name
+      - your name
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: fee_structure
+    examples: |
+      - what is the fees of [mca](course)
+      - [mca](course) fees
+      - fees of [mca](course)
+      - what is [b. tech](course) fees?
+      - [mca](course) fee?
+      - [b. pharma](course) admission fees
+      - [mba](course) yearly expenditure
+      - [hostel](course) fees
+      - [mca](course) semester wise fees
+      - What is the fee structure of the [hostel](course)?
+      - fees for [mca](course)
+      - What are the [hidden](course) fees?
+      - what is the fees in [mca](course)
+      - what is the fees in [b.tech](course) [cse](branch)
+      - [library](course) fees 
+      - charge of [library](course)
+      - books fees in [library](course)
+
+  - intent: fee_misc
+    examples: |
+      -  Is there any tax in doing online fees submission?
+      -  Can I deposit fees in Cash?
+      -  Can I deposit fees using Netbanking?
+      -  How much is the late fine?
+      -  How much is the Library charge?
+      -  How much is the security amount?
+      -  Is the course fees refundable?
+      -  Is there any fee concessions for students who belong to weaker economical section?
+      -  Is there any Installment scheme?
+      -  Are there any scholarships or fee waivers in KIET Group of Institutions?
+      -  Last date of fees submission?
+      -  What are hidden fees?
+      -  Is there any tax in doing online fees submission?
+      -  Is there any fee concessions for students who belong to weaker economical section?
+      -  Is there any Installment scheme?
+      -  what is fees of mca
+      -  Can I deposit Hostel fees using Netbanking?
+      -  How much is the late fine?
+      -  Last date of fees submissions?
+      -  Can I leave hostel in between semesters?
+      -  How much is the security amount?
+      -  Is the hostel fees refundable?
+      -  Can I deposit Hostel fees in Cash?
+      -  What is the fee structure of MCA.
+
+  - intent: admission_process
+    examples: |
+      - documents required for mca
+      - whom to contact for mca admission
+      - whom to contact for b.tech enrollment
+      - is kiet is taking online interview for admission in btech , can anybody tell me what questions they could ask?
+      - Fee is same or different for all Courses?
+      - Value added courses runs in KIET?
+      - KIET is aided or fully private Institution?
+      - KIET Group of Institution is founded in which year?
+      - KIET is Affiliated by Which university?
+      - Alumini Feedback?
+      - Sponsr's and partner of KIET?
+      - KIET Group of Institution run's by?
+      - Ranking of KIET Group of Institution among all colleges in Delhi NCR?
+      - No . of Labs availiable in KIET in difffrent Departments?
+      - No . of Seats availiable in Different courses in KIET?
+      - Whom to contact for process?
+      - admission process of b.pharma
+      - how to get admission in b.tech?
+      - how to get scholarship
+      - what is the eligibility criteria for scholarship
+      - how to get admission in kiet group of institutions
+      - Semester length of courses in kiet ?
+      - Result summary of courses?
+      - how many mca
+      - Hackathons organised by KIET?
+      - Courses Offered by KIET Ghaziabad ?
+      - Competition organised by KIET?
+      - KIET Group of Institutions Admission Process?
+      - KIET Ghaziabad Cutoff For distinct courses?
+      - KIET Ghaziabad Campus and Facilities?
+      - KIET contact No for admission?
+      - Is thier any management quota seats is availiable in kiet ghaziabad?
+      - What is the Admission cancellation procudeure?
+      - Attendance mandate of courses  in kiet college?
+      - How can I take direct admission in Kiet Ghaziabad?
+      - Documents required during the councelling?
+      - College working days?
+      - Departmental activies and functions?
+      - Academics Hours in KIET?
+      - Clubs and societies in KIET?
+      - is kiet Offeres any international trip or tour for students?
+      - Documents required for getting direct Admission in KIET ?
+      - is kiet celebrates any Annnual function or Event?
+      - Naac Grading of KIET?
+
+  - intent: hod
+    examples: |
+      - who is the hod of [mba](department)
+      - who is the hod of [mca](department)
+      - who is the hod of [b.pharm](department)
+      - who is the hod of [b.tech](department)
+
+  - intent: placement
+    examples: |
+      -  Are there placement coordinators appointed in department?
+      -  What is the minimum package in CSE branch?
+      -  Can I get good package from CSIT from KIET Group of institutions?
+      -  Is KIET Ghaziabad good for EEE?
+      -  How are the placements for mechanical branch at KIET Ghaziabad?
+      -  Which companies come for placements at KIET for B.Tech?
+      -  Who were the recruiters at KIET Ghaziabad placements 2022?
+      -  What was the average salary of KIET Ghaziabad?
+      -  What was the average placement of KIET?
+      -  What is duration of internships offered?
+      -  How are the placements at KIET, Ghaziabad?
+      -  What is better, IT from KIET Ghaziabad or CSE from ABES Engineering college Ghaziabad?
+      -  How are the placements in KIET Ghaziabad for a Bachelor's of Technology students?
+      -  Is the ECE branch placement at ABES Engineering College better than at KIET?
+      -  Are there any internships offered to Civil students?
+      -  What is the highest package received?
+      -  whom to contact for admission in b.pharma
+      -  What is the use of CRPC?
+      -  Do I get paid internships after B. Pharma from kiet Ghaziabad?
+      -  Are unpaid internships available after MBA from KIET Ghaziabad?
+      -  What are the mass recruiters in each department of KIET?
+      -  What other additional facilities are provided for placements in KIET MBA?
+      -  Do more companies visit KIET Ghaziabad or AKG Ghaziabad?
+      -  Which companies were major recruiters at KIET, Ghaziabad?
+      -  What is the Placement Statics at KIET Ghaziabad?
+      -  Does KIET Ghaziabad provide Internship Programs?
+      -  Is KIET Ghaziabad a good Institute/College?
+      -  Are the placements of KIET Ghaziabad getting better year by year?
+      -  What are the reasons for KIET Ghaziabad’s low placement rate?
+      -  Best company for placement in KIET?
+      -  How are KIET Ghaziabad placements 2018?
+      -  Which department is best for high package job MCA or MBA?
+      -  Which branch of B. Tech. gets the highest placements in KIET?
+      -  What is the highest package in KIET till now?
+      -  Can I get placed in Amazon after MCA from KIET Ghaziabad?
+      -  Is any additional payment related for required for placement after B. Tech?
+      -  Is KIET Ghaziabad good for Higher studies?
+      -  Do I get Aptitude and verbal ability classes in MCA?
+      -  Are there additional skill development classes in B. Pharma?
+      -  Which companies come for recruitment in MBA in KIET Ghaziabad?
+      -  Is MCA placement better at KIET than AKGEC, GL Bajaj and ABES?
+      -  Are there any unplaced students after completion of MCA from KIET Ghaziabad?
+
+  - intent: random
+    examples: |
+      - who is anuj dubey
+      - do you eat
+      - do you have feelings
+      - how to go to goa
+      - who is the pm of china

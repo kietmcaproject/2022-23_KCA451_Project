@@ -1,0 +1,32 @@
+.form-control {
+  border: 1px solid #cfd1d8;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 0.825rem;
+  background: #ffffff;
+  color: #2e323c;
+}
+
+.card {
+  background: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+
+  margin-bottom: 1rem;
+}
+.container {
+  margin-top: 50px;
+}
+input[type="text"],
+select {
+  background: url("../../assets/images/george.png");
+  border: 0.5px solid black;
+  padding: 16px 45px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elective Subjects Recommendation | Working</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Elective Subjects Recommendation System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="./pages/subjects.html">Subjects</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="title container">
+        <div class="padding-2"></div>
+        <div class="header">
+            <h1>Recommendations for your elective subjects</h1>
+            <p>This proejct presents the implementation of elective recommendation system that utilizes the machine
+                learning
+                algorithms to provide personalized recommendations to students. There are many difficulties faced by
+                students while making a selection like what subject they need to choose, how they will perform in the
+                chosen
+                subject, and how similar that subject will be in reference to the other subject already studied by the
+                student.
+            </p>
+        </div>
+        <div class="padding-2"></div>
+        <div class="body">
+            <h2>Please enter required information</h2>
+            <div class="padding"></div>
+            <form novalidate>
+                <div class="mb-3 tab" id="intermediate">
+                    <h4>Intermediate Marks</h4>
+                </div>
+                <div class="mb-3 tab" id="firstSem">
+                    <h4>First Semester Marks</h4>
+                </div>
+                <div class="mb-3 tab" id="recommendationParameters">
+                    <h4>Select Recommendation Parameters</h4>
+                    
+                    <!-- Input for k -->
+                    <div class="form-group">
+                        <div class="padding"></div>
+                        <label for="k" class="form-label">Number of Recommendations per Elective</label>
+                        <input type="number" class="form-control" id="k" name="k" value="" placeholder="Enter here">
+                        <div class="invalid-feedback">value should be between [1, 5]</div>
+                    </div>
+
+                    <!-- Input for threshold -->
+                    <div class="form-group">
+                        <div class="padding"></div>
+                        <label for="thresh" class="form-label">Marks Threshold</label>
+                        <input type="number" class="form-control" id="thresh" name="thresh" value="" placeholder="Only those subjects will be selected which have marks greater than this value.">
+                        <div class="invalid-feedback">value should be between [33, 100]</div>
+                    </div>
+
+                    <!-- Taking choice of electives -->
+                    <div class="padding-2"></div>
+                    <h5>Please select, for which elective(s) you want recommendation</h6>
+
+                    <div id="electiveChoice"></div>
+
+                    <!-- Taking type of algorithm combination to recommend
+                    <div class="padding-2"></div>
+                    <h5>Please select, which algorithm you want to select for recommendation</h6>
+                    <p>Please select Type 2 if you don't know about these algorithms</p>
+
+                    <div id="algoChoice"></div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="algotype" id="1">
+                        <label class="form-check-label" for="type1">
+                            Type 1
+                            <span style="margin-right: 20px;"></span>
+                            <span class="badge rounded-pill text-bg-warning" style="margin-right: 10px; padding: 8px 12px;">Dataset: One-Hot</span>
+                            <span class="badge rounded-pill text-bg-success" style="margin-right: 10px; padding: 8px 12px;">Algorithm: Hamming</span>
+                        </label>
+                    </div>
+                    <div class="padding"></div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="algotype" id="2" checked>
+                        <label class="form-check-label" for="type2">
+                            Type 2
+                            <span style="margin-right: 20px;"></span>
+                            <span class="badge rounded-pill text-bg-warning" style="margin-right: 10px; padding: 8px 12px;">Dataset: Percentage</span>
+                            <span class="badge rounded-pill text-bg-success" style="margin-right: 10px; padding: 8px 12px;">Algorithm: Angular</span>
+                        </label>
+                    </div> -->
+                </div>
+            </form>
+        </div>
+        <div class="padding-2"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>

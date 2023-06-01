@@ -1,0 +1,30 @@
+.cardContainer {
+    height: 345px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+    position: relative;
+    
+    img {
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .desc {
+        font-weight: 300;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+
+    .title {
+        font-weight: 500;
+        font-size: 24px;
+        position: absolute;
+        top: 40px;
+        left: 15px;
+    }
+}

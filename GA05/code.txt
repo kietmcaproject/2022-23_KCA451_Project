@@ -1,0 +1,1574 @@
+Add_question.java
+
+
+
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Question;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Add_question
+ */
+@WebServlet("/Add_question")
+public class Add_question extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Question q = new Question();
+		q.setQues(request.getParameter("ques"));
+		q.setOp1(request.getParameter("op1"));
+		q.setOp2(request.getParameter("op2"));
+		q.setOp3(request.getParameter("op3"));
+		q.setOp4(request.getParameter("op4"));
+		q.setCoption(Integer.parseInt(request.getParameter("coption")));
+		Database db = new Database();
+		if (db.addQues(Integer.parseInt(request.getParameter("examid")), q)) {
+			request.setAttribute("msg", "Question Added!");
+			request.setAttribute("msg2", "Want to Add More?");
+			request.setAttribute("link", "add_question.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+
+
+Admin_login.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Admin;
+import database.Database;
+
+/**
+ * Servlet implementation class Abc
+ */
+@WebServlet("/Admin_login")
+public class Admin_login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int aid = Integer.parseInt(request.getParameter("aid"));
+		String pass= request.getParameter("pass");
+		Database db = new Database();
+		if(db.adminlogin(aid,pass)) {
+			Admin ad= db.adminDetail();
+			HttpSession se = request.getSession();
+			se.setAttribute("detail", ad);
+			response.sendRedirect("admin_option.jsp");
+		}
+		else {
+			request.setAttribute("errMsg", "Invalid Credentials!");
+			request.getRequestDispatcher("admin_login.jsp").forward(request, response);
+		}
+		
+	}
+
+	
+
+}
+Admin_logout.java
+package college_system;
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Logout
+ */
+@WebServlet("/Admin_logout")
+public class Admin_logout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se=request.getSession(false);
+		se.removeAttribute("detail");
+		se.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+
+}
+package college_system;
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Logout
+ */
+@WebServlet("/Admin_logout")
+public class Admin_logout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se=request.getSession(false);
+		se.removeAttribute("detail");
+		se.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+
+}
+package college_system;
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Logout
+ */
+@WebServlet("/Admin_logout")
+public class Admin_logout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se=request.getSession(false);
+		se.removeAttribute("detail");
+		se.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+
+}
+package college_system;
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Logout
+ */
+@WebServlet("/Admin_logout")
+public class Admin_logout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se=request.getSession(false);
+		se.removeAttribute("detail");
+		se.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+
+}
+Create_exam.java
+package college_system;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Create_exam
+ */
+@WebServlet("/Create_exam")
+public class Create_exam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Exam ex = new Exam();
+		ex.setExamName(request.getParameter("examName"));
+		java.util.Date dt = null;
+
+		try {
+			dt = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			Date d = new Date(dt.getTime());
+			ex.setDate(d);
+			dt = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+			Time ti = new Time(dt.getTime());
+			ex.setTime(ti);
+			System.out.println(ti);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ex.setDeptid(Integer.parseInt(request.getParameter("deptid")));
+		ex.setNmarks(Integer.parseInt(request.getParameter("nmarks")));
+		ex.setNoOfQues(Integer.parseInt(request.getParameter("noOfQues")));
+		ex.setPmarks(Integer.parseInt(request.getParameter("pmarks")));
+		ex.setDtime(Integer.parseInt(request.getParameter("dtime")));
+
+		Database db = new Database();
+		if (db.addExam(ex)) {
+			request.setAttribute("msg", "Exam Created!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Create_exam
+ */
+@WebServlet("/Create_exam")
+public class Create_exam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Exam ex = new Exam();
+		ex.setExamName(request.getParameter("examName"));
+		java.util.Date dt = null;
+
+		try {
+			dt = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			Date d = new Date(dt.getTime());
+			ex.setDate(d);
+			dt = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+			Time ti = new Time(dt.getTime());
+			ex.setTime(ti);
+			System.out.println(ti);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ex.setDeptid(Integer.parseInt(request.getParameter("deptid")));
+		ex.setNmarks(Integer.parseInt(request.getParameter("nmarks")));
+		ex.setNoOfQues(Integer.parseInt(request.getParameter("noOfQues")));
+		ex.setPmarks(Integer.parseInt(request.getParameter("pmarks")));
+		ex.setDtime(Integer.parseInt(request.getParameter("dtime")));
+
+		Database db = new Database();
+		if (db.addExam(ex)) {
+			request.setAttribute("msg", "Exam Created!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Create_exam
+ */
+@WebServlet("/Create_exam")
+public class Create_exam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Exam ex = new Exam();
+		ex.setExamName(request.getParameter("examName"));
+		java.util.Date dt = null;
+
+		try {
+			dt = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			Date d = new Date(dt.getTime());
+			ex.setDate(d);
+			dt = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+			Time ti = new Time(dt.getTime());
+			ex.setTime(ti);
+			System.out.println(ti);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ex.setDeptid(Integer.parseInt(request.getParameter("deptid")));
+		ex.setNmarks(Integer.parseInt(request.getParameter("nmarks")));
+		ex.setNoOfQues(Integer.parseInt(request.getParameter("noOfQues")));
+		ex.setPmarks(Integer.parseInt(request.getParameter("pmarks")));
+		ex.setDtime(Integer.parseInt(request.getParameter("dtime")));
+
+		Database db = new Database();
+		if (db.addExam(ex)) {
+			request.setAttribute("msg", "Exam Created!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+Deleteques.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Deleteques
+ */
+@WebServlet("/Deleteques")
+public class Deleteques extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if (te == null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		int examid, qid;
+		examid = Integer.parseInt(request.getParameter("examId"));
+		qid = Integer.parseInt(request.getParameter("qid"));
+		Database db = new Database();
+		if (db.deleteQuestion(examid, qid)) {
+			System.out.println("question deleted");
+			response.sendRedirect("update_question.jsp?examId=" + examid);
+		}
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Deleteques
+ */
+@WebServlet("/Deleteques")
+public class Deleteques extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if (te == null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		int examid, qid;
+		examid = Integer.parseInt(request.getParameter("examId"));
+		qid = Integer.parseInt(request.getParameter("qid"));
+		Database db = new Database();
+		if (db.deleteQuestion(examid, qid)) {
+			System.out.println("question deleted");
+			response.sendRedirect("update_question.jsp?examId=" + examid);
+		}
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Deleteques
+ */
+@WebServlet("/Deleteques")
+public class Deleteques extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if (te == null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		int examid, qid;
+		examid = Integer.parseInt(request.getParameter("examId"));
+		qid = Integer.parseInt(request.getParameter("qid"));
+		Database db = new Database();
+		if (db.deleteQuestion(examid, qid)) {
+			System.out.println("question deleted");
+			response.sendRedirect("update_question.jsp?examId=" + examid);
+		}
+	}
+
+}
+Feeadmin_login.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Fee;
+
+/**
+ * Servlet implementation class Feeadmin_login
+ */
+@WebServlet("/Feeadmin_login")
+public class Feeadmin_login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int fid = Integer.parseInt(request.getParameter("fid"));
+		String pass= request.getParameter("pass");
+		Database db = new Database();
+		if(db.feeadminlogin(fid,pass)) {
+			Fee fd= db.feeadminDetail();
+			HttpSession fe = request.getSession();
+			fe.setAttribute("fdetail", fd);
+			response.sendRedirect("feeadmin_option.jsp");
+		}
+		else {
+			request.setAttribute("errMsg", "Invalid Credentials!");
+			request.getRequestDispatcher("feeadmin_login.jsp").forward(request, response);
+		}
+	}
+
+}
+Feeadmin_logout.java
+package college_system;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Feeadmin_logout
+ */
+@WebServlet("/Feeadmin_logout")
+public class Feeadmin_logout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+  
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se=request.getSession(false);
+		se.removeAttribute("fdetail");
+		se.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+
+
+}
+Feesubmit.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Fee;
+import database.Student;
+
+/**
+ * Servlet implementation class Feesubmit
+ */
+@WebServlet("/Feesubmit")
+public class Feesubmit extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int amount = Integer.parseInt(request.getParameter("sfee"));
+		HttpSession se = request.getSession(false);//false se purane seddion ko check krta h 
+		Fee fe = (Fee) se.getAttribute("fdetail");
+		Student st = (Student) se.getAttribute("studentdetail");
+		if (fe == null || st == null) {
+			response.sendRedirect("feeadmin_login.jsp");
+			return;
+		}
+		
+		
+		int sid = st.getSid();
+		int rfee = st.getTotalfees() - st.getSubmitedfees();
+		if(amount <= rfee) {
+			Database db = new Database();
+				if(db.feesubmit(amount+st.getSubmitedfees(),sid))
+				{	
+					request.setAttribute("msg", "Fee Submitted!");
+					request.setAttribute("link", "feeadmin_option.jsp");
+					request.setAttribute("bname", "Continue");
+					request.setAttribute("color", "success");
+				}
+		}
+		else {
+			response.getWriter().print( "<a href=\"feestudent_submit.jsp?fsid="+sid+"\">feesubmit</a>");
+			request.setAttribute("msg", "Amount is more than required!");
+			request.setAttribute("link", "feestudent_submit.jsp?fsid="+sid);
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+		
+	}
+
+}
+Listener.java
+package college_system;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import database.Database;
+
+/**
+ * Application Lifecycle Listener implementation class Listener
+ *
+ */
+@WebListener
+public class Listener implements ServletContextListener {
+
+    /**
+     * Default constructor. 
+     */
+    public Listener() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+     */
+    public void contextDestroyed(ServletContextEvent sce)  { 
+         // TODO Auto-generated method stub
+    }
+
+	/**
+     * @see ServletContextListener#contextInitialized(ServletContextEvent)
+     */
+    public void contextInitialized(ServletContextEvent sce)  { 
+         Database db = new Database();
+         db.createDefaultTable();
+         System.out.println("Default Tables Checked!");
+    }
+	
+}
+Prepare_onlineexam.java
+package college_system;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Question;
+import database.Student;
+
+/**
+ * Servlet implementation class Prepare_onlineexam
+ */
+@WebServlet("/Prepare_onlineexam")
+public class Prepare_onlineexam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se = request.getSession(false);//false se purane session ko check krta h 
+		Student st = (Student) se.getAttribute("sdetail");
+		if(st==null) {
+			response.sendRedirect("student_login.jsp");
+			return;
+		}
+		Database db = new Database();
+		Exam ex = (Exam) se.getAttribute("examdetails");
+		if (ex == null) {
+			response.sendRedirect("student_option.jsp");
+			return;
+		}
+		ArrayList<Question> qal = db.getExamQuestion(ex);
+    
+		se.setAttribute("examques", qal);//it set different ques for different student
+		response.sendRedirect("online_exam_quespage.jsp");
+	}
+
+	
+
+}
+Save_attendance.java
+package college_system;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Save_attendance
+ */
+@WebServlet("/Save_attendance")
+public class Save_attendance extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Database db = new Database();
+		if (db.checkTodayAttendanceStatus(te.getDeptid())) {
+			return;
+		}
+		Map<Integer, String> m = (Map<Integer, String>) se.getAttribute("student_Id_List_Attendance");
+		Map<Integer, Boolean> att = new HashMap<Integer, Boolean>();
+		
+		for (Map.Entry<Integer, String> mp : m.entrySet()) {
+			att.put(mp.getKey(), Integer.parseInt(request.getParameter(mp.getKey().toString())) == 1 );
+		}
+		
+		if (!db.checkTodayAttendanceStatus(te.getDeptid())) {
+			db.saveAttendance(att, te.getDeptid());
+			
+			request.setAttribute("msg", "Attendance Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else {
+			request.setAttribute("msg", "Attendance Already Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+		
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Save_attendance
+ */
+@WebServlet("/Save_attendance")
+public class Save_attendance extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Database db = new Database();
+		if (db.checkTodayAttendanceStatus(te.getDeptid())) {
+			return;
+		}
+		Map<Integer, String> m = (Map<Integer, String>) se.getAttribute("student_Id_List_Attendance");
+		Map<Integer, Boolean> att = new HashMap<Integer, Boolean>();
+		
+		for (Map.Entry<Integer, String> mp : m.entrySet()) {
+			att.put(mp.getKey(), Integer.parseInt(request.getParameter(mp.getKey().toString())) == 1 );
+		}
+		
+		if (!db.checkTodayAttendanceStatus(te.getDeptid())) {
+			db.saveAttendance(att, te.getDeptid());
+			
+			request.setAttribute("msg", "Attendance Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else {
+			request.setAttribute("msg", "Attendance Already Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+		
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Save_attendance
+ */
+@WebServlet("/Save_attendance")
+public class Save_attendance extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Database db = new Database();
+		if (db.checkTodayAttendanceStatus(te.getDeptid())) {
+			return;
+		}
+		Map<Integer, String> m = (Map<Integer, String>) se.getAttribute("student_Id_List_Attendance");
+		Map<Integer, Boolean> att = new HashMap<Integer, Boolean>();
+		
+		for (Map.Entry<Integer, String> mp : m.entrySet()) {
+			att.put(mp.getKey(), Integer.parseInt(request.getParameter(mp.getKey().toString())) == 1 );
+		}
+		
+		if (!db.checkTodayAttendanceStatus(te.getDeptid())) {
+			db.saveAttendance(att, te.getDeptid());
+			
+			request.setAttribute("msg", "Attendance Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else {
+			request.setAttribute("msg", "Attendance Already Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+		
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Save_attendance
+ */
+@WebServlet("/Save_attendance")
+public class Save_attendance extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Database db = new Database();
+		if (db.checkTodayAttendanceStatus(te.getDeptid())) {
+			return;
+		}
+		Map<Integer, String> m = (Map<Integer, String>) se.getAttribute("student_Id_List_Attendance");
+		Map<Integer, Boolean> att = new HashMap<Integer, Boolean>();
+		
+		for (Map.Entry<Integer, String> mp : m.entrySet()) {
+			att.put(mp.getKey(), Integer.parseInt(request.getParameter(mp.getKey().toString())) == 1 );
+		}
+		
+		if (!db.checkTodayAttendanceStatus(te.getDeptid())) {
+			db.saveAttendance(att, te.getDeptid());
+			
+			request.setAttribute("msg", "Attendance Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else {
+			request.setAttribute("msg", "Attendance Already Saved!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+		
+	}
+
+}
+Save_result.java
+package college_system;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Question;
+import database.Student;
+
+/**
+ * Servlet implementation class Save_result
+ */
+@WebServlet("/Save_result")
+public class Save_result extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sse = request.getSession(false);// false se purane seddion ko check krta h
+		Student st = (Student) sse.getAttribute("sdetail");
+		if (st == null) {
+			response.sendRedirect("student_login.jsp");
+			return;
+		}
+		Exam ex = (Exam) sse.getAttribute("examdetails");
+		if (ex == null) {
+			response.sendRedirect("student_option.jsp");
+			return;
+		}
+		Database db = new Database();
+		ArrayList<Question> aq = (ArrayList<Question>) sse.getAttribute("examques");
+		sse.removeAttribute("examdetails");
+		sse.removeAttribute("examques");
+		String allans[] = request.getParameterValues("user-answers");
+		int canscount = 0, incanscount = 0;
+		for (int i = 0; i < aq.size(); i++) {
+			if (!allans[i].equals("")) {
+				if (Integer.parseInt(allans[i]) == aq.get(i).getCoption()) {
+					canscount++;
+				} else {
+					incanscount++;
+				}
+			}
+		}
+		db.saveResult(st.getSid(), st.getDeptid(), canscount, incanscount, ex);
+
+		int result = canscount * ex.getPmarks() - incanscount * ex.getNmarks();
+		int unattemped = ex.getNoOfQues() - (canscount + incanscount);
+
+		String rmsg = "Correct Questions = "+ canscount + "<br>" +
+				"Incorrect Questions = " + incanscount + "<br>" +
+				"Unattempted Questions = " + unattemped;
+		
+		request.setAttribute("msg", "Result = "+result+"/"+ex.getNoOfQues()*ex.getPmarks());
+		request.setAttribute("msg2", rmsg);
+		request.setAttribute("link", "student_option.jsp");
+		request.setAttribute("bname", "Continue");
+		request.setAttribute("color", "success");
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+
+Student_login.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Student;
+
+/**
+ * Servlet implementation class Student_login
+ */
+@WebServlet("/Student_login")
+public class Student_login extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String pass;
+		int sid = Integer.parseInt(request.getParameter("sid"));
+		pass = request.getParameter("pass");
+		Database db = new Database();
+		sid = db.studentlogin(sid, pass);
+		if (sid != 0) {
+			Student stu = db.studentDetail(sid);
+			HttpSession sse = request.getSession();
+			sse.setAttribute("sdetail", stu);
+			response.sendRedirect("student_option.jsp");
+		} else {
+			request.setAttribute("errMsg", "Invalid Credentials!");
+			request.getRequestDispatcher("student_login.jsp").forward(request, response);
+		}
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Student;
+
+/**
+ * Servlet implementation class Student_login
+ */
+@WebServlet("/Student_login")
+public class Student_login extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String pass;
+		int sid = Integer.parseInt(request.getParameter("sid"));
+		pass = request.getParameter("pass");
+		Database db = new Database();
+		sid = db.studentlogin(sid, pass);
+		if (sid != 0) {
+			Student stu = db.studentDetail(sid);
+			HttpSession sse = request.getSession();
+			sse.setAttribute("sdetail", stu);
+			response.sendRedirect("student_option.jsp");
+		} else {
+			request.setAttribute("errMsg", "Invalid Credentials!");
+			request.getRequestDispatcher("student_login.jsp").forward(request, response);
+		}
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Student;
+
+/**
+ * Servlet implementation class Student_login
+ */
+@WebServlet("/Student_login")
+public class Student_login extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String pass;
+		int sid = Integer.parseInt(request.getParameter("sid"));
+		pass = request.getParameter("pass");
+		Database db = new Database();
+		sid = db.studentlogin(sid, pass);
+		if (sid != 0) {
+			Student stu = db.studentDetail(sid);
+			HttpSession sse = request.getSession();
+			sse.setAttribute("sdetail", stu);
+			response.sendRedirect("student_option.jsp");
+		} else {
+			request.setAttribute("errMsg", "Invalid Credentials!");
+			request.getRequestDispatcher("student_login.jsp").forward(request, response);
+		}
+	}
+
+}
+Student_logout.java
+package college_system;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Student_logout
+ */
+@WebServlet("/Student_logout")
+public class Student_logout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession sse=request.getSession(false);
+		sse.removeAttribute("sdetail");
+		sse.invalidate();
+		response.sendRedirect("index.jsp");
+	}
+
+}
+Student_registration.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import database.Database;
+import database.Student;
+
+/**
+ * Servlet implementation class Student_registration
+ */
+@WebServlet("/Student_registration")
+public class Student_registration extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Student stu = new Student();
+		stu.setName(request.getParameter("name"));
+		stu.setPassword(request.getParameter("pass"));
+		stu.setEmail(request.getParameter("email"));
+		stu.setMobno(request.getParameter("mob"));
+		stu.setGender(request.getParameter("gender"));
+		stu.setDob(request.getParameter("dob"));
+		stu.setTenth(Integer.parseInt(request.getParameter("10%")));
+		stu.setTwelfth(Integer.parseInt(request.getParameter("12%")));
+		stu.setDeptid(Integer.parseInt(request.getParameter("deptid")));
+		Database db = new Database();
+		int sta = db.addStudent(stu);
+		if ( sta == 1 ) {
+			request.setAttribute("msg", "Registration Successfull!");
+			request.setAttribute("msg2", "Your Id = "+stu.getSid());
+			request.setAttribute("link", "student_login.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else if ( sta == 2 ) {
+			request.setAttribute("msg", "E-mail Already Exists!");
+			request.setAttribute("link", "student_registration.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		} else {
+			request.setAttribute("msg", "500! Some Error Occur");
+			request.setAttribute("link", "index.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+
+	}
+
+}
+Teacher_login.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Teacher_login
+ */
+@WebServlet("/Teacher_login")
+public class Teacher_login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int tid = Integer.parseInt(request.getParameter("tid"));
+		String pass = request.getParameter("pass");
+		Database db = new Database();
+		if (db.teacherLogin(tid, pass)) {
+			Teacher te = db.teacherDetail();
+			HttpSession tl = request.getSession();
+			tl.setAttribute("tdetail", te);
+			response.sendRedirect("teacher_option.jsp");
+		} else {
+			request.setAttribute("errMsg", "Invalid Credentials!");
+			request.getRequestDispatcher("teacher_login.jsp").forward(request, response);
+		}
+	}
+
+}
+Teacher_registration.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Admin;
+import database.Database;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Teacher_registration
+ */
+@WebServlet("/Teacher_registration")
+public class Teacher_registration extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Admin ad = (Admin) se.getAttribute("detail");
+		if(ad==null) {
+			response.sendRedirect("admin_login.jsp");
+			return;
+		}
+		Teacher t= new Teacher();
+		t.setName(request.getParameter("tname"));
+		t.setEmail(request.getParameter("email"));
+		t.setPassword(request.getParameter("pass"));
+		t.setDeptid(Integer.parseInt(request.getParameter("departmentid")));
+		t.setMobileno(request.getParameter("mob"));
+		Database db = new Database();
+		
+		int sta = db.addTeacher(t);
+		if ( sta == 1 ) {
+			request.setAttribute("msg", "Registration Successfull!");
+			request.setAttribute("msg2", "Teacher Id = "+t.getTid());
+			request.setAttribute("link", "teacher_login.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else if ( sta == 2 ) {
+			request.setAttribute("msg", "E-mail Already Exists!");
+			request.setAttribute("link", "teacher_registration.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		} else {
+			request.setAttribute("msg", "500! Some Error Occur");
+			request.setAttribute("link", "index.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("msg.jsp");
+		rd.forward(request, response);
+	}
+
+}
+Teacherlogout.java
+package college_system;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Teacherlogout
+ */
+@WebServlet("/Teacherlogout")
+public class Teacherlogout extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession tl=request.getSession(false);
+		tl.removeAttribute("tdetail");
+		tl.invalidate();
+		response.sendRedirect("index.jsp");
+}
+}
+Update_exam.java
+package college_system;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Create_exam
+ */
+@WebServlet("/Update_exam")
+public class Update_exam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Exam ex = new Exam();
+		ex.setExamName(request.getParameter("examName"));
+		java.util.Date dt = null;
+
+		try {
+			dt = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			Date d = new Date(dt.getTime());
+			ex.setDate(d);
+			dt = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+			Time ti = new Time(dt.getTime());
+			ex.setTime(ti);
+			System.out.println(ti);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ex.setDeptid(Integer.parseInt(request.getParameter("deptid")));
+		ex.setNmarks(Integer.parseInt(request.getParameter("nmarks")));
+		ex.setNoOfQues(Integer.parseInt(request.getParameter("noOfQues")));
+		ex.setPmarks(Integer.parseInt(request.getParameter("pmarks")));
+		ex.setDtime(Integer.parseInt(request.getParameter("dtime")));
+		ex.setExamid(Integer.parseInt(request.getParameter("eid")));
+		Database db = new Database();
+		if (db.updateExam(ex)) {
+			request.setAttribute("msg", "Exam Updated!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else {
+			request.setAttribute("msg", "500! Some Error Occur");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+package college_system;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Exam;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Create_exam
+ */
+@WebServlet("/Update_exam")
+public class Update_exam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Exam ex = new Exam();
+		ex.setExamName(request.getParameter("examName"));
+		java.util.Date dt = null;
+
+		try {
+			dt = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+			Date d = new Date(dt.getTime());
+			ex.setDate(d);
+			dt = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+			Time ti = new Time(dt.getTime());
+			ex.setTime(ti);
+			System.out.println(ti);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ex.setDeptid(Integer.parseInt(request.getParameter("deptid")));
+		ex.setNmarks(Integer.parseInt(request.getParameter("nmarks")));
+		ex.setNoOfQues(Integer.parseInt(request.getParameter("noOfQues")));
+		ex.setPmarks(Integer.parseInt(request.getParameter("pmarks")));
+		ex.setDtime(Integer.parseInt(request.getParameter("dtime")));
+		ex.setExamid(Integer.parseInt(request.getParameter("eid")));
+		Database db = new Database();
+		if (db.updateExam(ex)) {
+			request.setAttribute("msg", "Exam Updated!");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		} else {
+			request.setAttribute("msg", "500! Some Error Occur");
+			request.setAttribute("link", "teacher_option.jsp");
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "danger");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+Update_question.java
+package college_system;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import database.Database;
+import database.Question;
+import database.Teacher;
+
+/**
+ * Servlet implementation class Update_question
+ */
+@WebServlet("/Update_question")
+public class Update_question extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession se = request.getSession(false);
+		Teacher te = (Teacher) se.getAttribute("tdetail");
+		if(te==null) {
+			response.sendRedirect("teacher_login.jsp");
+			return;
+		}
+		Database db = new Database();
+		Question q = new Question();
+		int examId = Integer.parseInt(request.getParameter("examId"));
+		q.setQues(request.getParameter("ques"));
+		q.setOp1(request.getParameter("op1"));
+		q.setOp2(request.getParameter("op2"));
+		q.setOp3(request.getParameter("op3"));
+		q.setOp4(request.getParameter("op4"));
+		q.setCoption(Integer.parseInt(request.getParameter("coption")));
+		q.setQid(Integer.parseInt(request.getParameter("qid")));
+		if (db.updateQues(examId, q)) {
+			request.setAttribute("msg", "Question Updated!");
+			request.setAttribute("msg2", "Want to See Questions?");
+			request.setAttribute("link", "update_question.jsp?examId=" + examId);
+			request.setAttribute("bname", "Continue");
+			request.setAttribute("color", "success");
+		}
+		request.getRequestDispatcher("msg.jsp").forward(request, response);
+	}
+
+}
+

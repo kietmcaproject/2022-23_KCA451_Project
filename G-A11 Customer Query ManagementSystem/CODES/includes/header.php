@@ -54,59 +54,8 @@
                 </script>
               </li>
             
-
-              <li class="dropdown note">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i> <span class="badge blue1">9</span></a>
-                <ul class="dropdown-menu two">
-                  <li>
-                    <div class="notification_header">
-                      <h3>You have 9 pending task</h3>
-                    </div>
-                  </li>
-                  <li><a href="#">
-                    <div class="task-info">
-                      <span class="task-desc">Database update</span><span class="percentage">40%</span>
-                      <div class="clearfix"></div>  
-                    </div>
-                    <div class="progress progress-striped active">
-                      <div class="bar yellow" style="width:40%;"></div>
-                    </div>
-                  </a></li>
-                  <li><a href="#">
-                    <div class="task-info">
-                      <span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-                      <div class="clearfix"></div>  
-                    </div>
-
-                    <div class="progress progress-striped active">
-                      <div class="bar green" style="width:90%;"></div>
-                    </div>
-                  </a></li>
-                  <li><a href="#">
-                    <div class="task-info">
-                      <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
-                      <div class="clearfix"></div>  
-                    </div>
-                    <div class="progress progress-striped active">
-                      <div class="bar red" style="width: 33%;"></div>
-                    </div>
-                  </a></li>
-                  <li><a href="#">
-                    <div class="task-info">
-                      <span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-                      <div class="clearfix"></div>  
-                    </div>
-                    <div class="progress progress-striped active">
-                      <div class="bar  blue" style="width: 80%;"></div>
-                    </div>
-                  </a></li>
-                  <li>
-                    <div class="notification_bottom">
-                      <a href="#">See all pending task</a>
-                    </div> 
-                  </li>
-                </ul>
-              </li>                         
+ 
+               <p style="padding-top: 10px;color: white;text-align: center;">Customer Query Management System</p>                        
               <div class="clearfix"></div>  
             </ul>
           </div>

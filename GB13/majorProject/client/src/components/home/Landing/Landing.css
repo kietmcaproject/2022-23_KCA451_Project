@@ -1,0 +1,151 @@
+.zoom {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+background-color: rgb(189, 225, 243);
+    height: 100vh;
+
+}
+.zoom img{
+    position: absolute;
+  
+     top: 0;
+    left: 0;
+    width: 100vw; 
+    min-width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+
+}
+.content{
+    font-size: 80%;
+    margin:0 auto;
+    text-align: center;
+
+}
+.stay-curious{
+    width: 100%;
+    font-size: 50px;
+    font-weight: 800;
+    font-family: cursive;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   font-size: 90px;
+   color: #359381;
+   
+   
+    width: 100%;
+}
+#text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    
+   
+    z-index: 100;
+}
+.discover-stories{
+    font-size: 2vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wrapper{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #btn{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 20px;
+    background-color: black;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all .35s;
+  }
+  
+  #btn span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  #btn:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #359381;
+    transition: all .35s;
+  }
+  
+  #btn:hover{
+    color: #fff;
+  }
+  
+  #btn:hover:after{
+    width: 100%;
+  }
+  
+.navigation span{
+color: #359381;
+padding: 6px 15px;
+border-radius: 20px;
+
+/* margin-right: 10px; */
+font-weight: 600;
+}
+.navigation{
+ 
+    margin-right: 600px;
+}
+.navigation span:hover{
+    background-color: #359381;
+    color: white;
+}
+.outer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 10px; */
+    z-index:100;
+    /* background-color: red; */
+    /* flex-direction: row; */
+}
+.logo{
+   font-size: 3rem;
+   color: white;
+   pointer-events: none;margin-left: 100px;
+   padding: 20px;
+   border-radius: 50%;
+   border: 2px solid #f5de6a;
+   background-color: #FCE570;
+   box-shadow: 1px 0px 100px 20px yellow;
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.UpdateInterestActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_six_dp"
+        android:background="@color/colorBG"
+        android:elevation="@dimen/eight_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/fifty_six_dp"
+            android:paddingStart="@dimen/twelve_dp"
+            android:paddingEnd="@dimen/twelve_dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewImage"
+            android:layout_width="@dimen/forty_dp"
+            android:layout_height="@dimen/forty_dp"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/twenty_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivBack"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                app:cardCornerRadius="18dp">
+
+                <ImageView
+                    android:id="@+id/ivProfilePicHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutDetails"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/eight_dp"
+            android:layout_marginEnd="@dimen/eight_dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cardViewImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardViewImage"
+            app:layout_constraintTop_toTopOf="@+id/cardViewImage">
+
+            <TextView
+                android:id="@+id/tvTitleHeader"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/fourteen_sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Select minimum 5 interests"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleHeader" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    <com.google.android.material.card.MaterialCardView-->
+    <!--        android:id="@+id/cardView"-->
+    <!--        android:layout_width="@dimen/eighty_dp"-->
+    <!--        android:layout_height="@dimen/eighty_dp"-->
+    <!--        android:layout_marginTop="@dimen/twenty_four_dp"-->
+    <!--        android:background="@color/white"-->
+    <!--        app:cardCornerRadius="@dimen/forty_dp"-->
+    <!--        app:cardElevation="@dimen/eight_dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/layoutHeader"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/layoutHeader">-->
+
+    <!--        <com.google.android.material.card.MaterialCardView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_margin="2dp"-->
+    <!--            app:cardCornerRadius="38dp">-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/ivGender"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:scaleType="centerCrop" />-->
+
+    <!--        </com.google.android.material.card.MaterialCardView>-->
+    <!--    </com.google.android.material.card.MaterialCardView>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/eight_dp"
+        android:paddingTop="@dimen/eight_dp"
+        android:paddingEnd="@dimen/eight_dp"
+        android:paddingBottom="@dimen/eighty_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutNext"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/forty_dp"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:background="@drawable/btn_bg"
+        android:elevation="@dimen/eight_dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvNext"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/sixteen_dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/eight_dp"
+            android:paddingEnd="@dimen/sixteen_dp"
+            android:text="PROCEED"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sixteen_sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivNext"
+            android:layout_width="@dimen/thirty_two_dp"
+            android:layout_height="@dimen/thirty_two_dp"
+            android:layout_margin="@dimen/four_dp"
+            android:background="@drawable/back_bg"
+            android:src="@drawable/ic_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvNext"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorPrimaryDark" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

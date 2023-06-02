@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/eighty_dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/upper"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <WebView
+                        android:id="@+id/webView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorBG"
+                        android:scaleType="fitXY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/ivPlay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_play"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPager"
+                        android:layout_width="@dimen/zero_dp"
+                        android:layout_height="@dimen/zero_dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/ivRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/right_btn_bg"
+                        android:paddingStart="@dimen/four_dp"
+                        android:paddingTop="@dimen/eight_dp"
+                        android:paddingEnd="@dimen/four_dp"
+                        android:paddingBottom="@dimen/eight_dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+                        app:layout_constraintEnd_toEndOf="@+id/viewPager"
+                        app:layout_constraintTop_toTopOf="@+id/viewPager"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/ivLeft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/left_btn_bg"
+                        android:paddingStart="@dimen/four_dp"
+                        android:paddingTop="@dimen/eight_dp"
+                        android:paddingEnd="@dimen/four_dp"
+                        android:paddingBottom="@dimen/eight_dp"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+                        app:layout_constraintStart_toStartOf="@+id/viewPager"
+                        app:layout_constraintTop_toTopOf="@+id/viewPager"
+                        app:tint="@color/white" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/fourteen_dp"
+                        android:layout_margin="@dimen/eight_dp"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:foregroundGravity="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:tabBackground="@drawable/dot_selector"
+                        app:tabGravity="center"
+                        app:tabIndicatorGravity="center"
+                        app:tabIndicatorHeight="@dimen/zero_dp"
+                        app:tabPaddingEnd="@dimen/twenty_dp"
+                        app:tabPaddingStart="@dimen/zero_dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/sixteen_dp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/eighteen_sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upper" />
+
+                <WebView
+                    android:id="@+id/webViewText"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/eight_dp"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:layout_marginEnd="@dimen/eight_dp"
+                    android:gravity="start"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/fourteen_sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/tvDescription"-->
+                <!--                    android:layout_width="@dimen/zero_dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="@dimen/sixteen_dp"-->
+                <!--                    android:layout_marginTop="@dimen/eight_dp"-->
+                <!--                    android:layout_marginEnd="@dimen/sixteen_dp"-->
+                <!--                    android:gravity="start"-->
+                <!--                    android:textColor="@color/colorText"-->
+                <!--                    android:textSize="@dimen/fourteen_sp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />-->
+
+                <TextView
+                    android:id="@+id/tvSwipeMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sixteen_dp"
+                    android:layout_marginTop="@dimen/sixteen_dp"
+                    android:layout_marginEnd="@dimen/sixteen_dp"
+                    android:gravity="start"
+                    android:text="Swipe left for more feeds"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="@dimen/ten_sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/webViewText" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sixteen_dp"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:layout_marginEnd="@dimen/sixteen_dp"
+                    android:drawableLeft="@drawable/ic_date"
+                    android:drawablePadding="@dimen/eight_dp"
+                    android:drawableTint="@color/grey"
+                    android:ellipsize="end"
+                    android:gravity="end|center_vertical"
+                    android:maxLines="1"
+                    android:padding="@dimen/eight_dp"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="@dimen/twelve_sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/webViewText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/tvReadMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:background="@drawable/read_more_bg"
+        android:paddingStart="@dimen/sixteen_dp"
+        android:paddingTop="@dimen/four_dp"
+        android:paddingEnd="@dimen/sixteen_dp"
+        android:paddingBottom="@dimen/four_dp"
+        android:text="Read more..."
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

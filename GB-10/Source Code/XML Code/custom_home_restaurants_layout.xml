@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="@dimen/four_dp"
+        app:cardCornerRadius="@dimen/eight_dp"
+        app:cardElevation="@dimen/two_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="@dimen/zero_dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_home_restaurant"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="2"
+                android:paddingStart="@dimen/twenty_dp"
+                android:paddingTop="@dimen/thirty_two_dp"
+                android:paddingEnd="@dimen/eight_dp"
+                android:paddingBottom="@dimen/eight_dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_rating_bg"
+                android:drawableRight="@drawable/ic_round_star"
+                android:visibility="gone"
+                android:drawablePadding="@dimen/two_dp"
+                android:gravity="center"
+                android:paddingStart="@dimen/six_dp"
+                android:paddingEnd="@dimen/four_dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvDiscount"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/discount_1_bg"
+        android:drawableLeft="@drawable/ic_discount"
+        android:drawablePadding="@dimen/two_dp"
+        android:elevation="@dimen/four_dp"
+        android:gravity="center"
+        android:paddingStart="@dimen/eight_dp"
+        android:paddingTop="@dimen/two_dp"
+        android:paddingEnd="@dimen/four_dp"
+        android:paddingBottom="@dimen/two_dp"
+        android:rotation="-90"
+        android:textColor="@color/white"
+        android:textSize="@dimen/ten_sp"
+        android:translationX="-56.3dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

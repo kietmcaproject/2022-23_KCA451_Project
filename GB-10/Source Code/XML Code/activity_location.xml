@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LocationActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.libraries.maps.SupportMapFragment"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        map:mapId="@string/map_id" />
+
+    <ImageView
+        android:id="@+id/ivLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/sixteen_dp"
+        android:src="@drawable/ic_marker"
+        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map" />
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/four_dp"
+        android:padding="@dimen/sixteen_dp"
+        android:src="@drawable/ic_back_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/colorText" />
+
+    <ImageView
+        android:id="@+id/ivAutoDetect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/two_dp"
+        android:paddingEnd="@dimen/sixteen_dp"
+        android:paddingBottom="@dimen/sixteen_dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/colorPrimary" />
+
+    <ImageView
+        android:id="@+id/ivAutoDetectArrow"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:rotation="90"
+        android:src="@drawable/ic_triangle"
+        app:layout_constraintBottom_toTopOf="@+id/ivAutoDetect"
+        app:layout_constraintEnd_toEndOf="@+id/ivAutoDetect"
+        app:layout_constraintStart_toStartOf="@+id/ivAutoDetect"
+        app:tint="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/ivAutoDetectMSG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/twelve_dp"
+        android:background="@drawable/search_bg"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingStart="@dimen/eight_dp"
+        android:paddingEnd="@dimen/eight_dp"
+        android:text="Use Current Location"
+        android:textColor="@color/white"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintBottom_toTopOf="@+id/ivAutoDetectArrow"
+        app:layout_constraintEnd_toEndOf="@+id/ivAutoDetect"
+        app:layout_constraintTop_toTopOf="@+id/ivAutoDetectArrow" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBG"
+        android:elevation="@dimen/eight_dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_connection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixteen_dp"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            android:drawableLeft="@drawable/ic_loc"
+            android:text="Please select location"
+            android:drawablePadding="@dimen/eight_dp"
+            android:gravity="start|center"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/twelve_sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnChange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAccuracy"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/forty_dp"
+            android:layout_marginTop="@dimen/two_dp"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            android:gravity="start"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/eight_sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/btnChange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+        <TextView
+            android:id="@+id/tvErrorMsg"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixteen_dp"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            android:gravity="start"
+            android:text="Currently we are not active in this location"
+            android:textColor="@color/red"
+            android:textSize="@dimen/twelve_sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAccuracy" />
+
+        <TextView
+            android:id="@+id/tvAvailable"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixteen_dp"
+            android:paddingTop="@dimen/twelve_dp"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            android:gravity="start"
+            android:text="Click here for available locations."
+            android:textColor="@color/green"
+            android:textSize="@dimen/twelve_sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvErrorMsg" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChange"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginEnd="@dimen/eight_dp"
+            android:text="Change"
+            android:textSize="@dimen/ten_sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAddress"
+            app:layout_constraintEnd_toStartOf="@+id/btnAuto"
+            app:layout_constraintTop_toTopOf="@+id/tvAddress" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAuto"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="@dimen/forty_dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvAddress" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location_small"
+            android:elevation="@dimen/eight_dp"
+            app:layout_constraintTop_toTopOf="@+id/btnAuto"
+            app:layout_constraintBottom_toBottomOf="@+id/btnAuto"
+            app:layout_constraintStart_toStartOf="@+id/btnAuto"
+            app:layout_constraintEnd_toEndOf="@+id/btnAuto"/>
+
+        <TextView
+            android:id="@+id/tvSave"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="@dimen/twelve_dp"
+            android:background="@color/grey"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="Save &amp; Proceed"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sixteen_sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAvailable" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_connection"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/forty_dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="No connection."
+        android:textColor="@color/white"
+        android:textSize="@dimen/twelve_sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:indeterminateTint="@color/blue400"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="1.5dp"
+        android:layout_height="30dp"
+        android:background="@color/lightGrey"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/ivDot"
+        app:layout_constraintStart_toStartOf="@+id/ivDot"
+        app:layout_constraintTop_toBottomOf="@+id/ivDot" />
+
+    <View
+        android:id="@+id/viewLine1"
+        android:layout_width="1.5dp"
+        android:layout_height="20dp"
+        android:background="@color/lightGrey"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ivDot"
+        app:layout_constraintStart_toStartOf="@+id/ivDot"
+        app:layout_constraintBottom_toTopOf="@+id/ivDot" />
+
+    <ImageView
+        android:id="@+id/ivDot"
+        android:layout_width="@dimen/twelve_dp"
+        android:layout_height="@dimen/twelve_dp"
+        android:src="@drawable/dot_green"
+        app:layout_constraintBottom_toBottomOf="@+id/layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/eight_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDot"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/eight_dp"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/twelve_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/eight_dp"
+            android:layout_marginTop="@dimen/four_dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/ten_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

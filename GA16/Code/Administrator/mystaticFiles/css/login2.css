@@ -1,0 +1,137 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+#titleBar{
+    background-color: transparent;
+}
+
+#header_links_container{
+    background-color: transparent;
+}
+
+.box {
+    position: absolute;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    padding: 40px;
+    background: rgba(0, 0, 0, .6);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px; 
+}
+
+.box .box_title {
+    padding: 0;
+    margin: 0 0 30px; 
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.box .innerbox {
+    position: relative;
+    text-align: center;
+}
+
+.box .inputbox input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.box .inputbox input:-internal-autofill-selected,
+.box .inputbox input:-webkit-autofill,
+.box .inputbox input:-webkit-autofill:hover, 
+.box .inputbox input:-webkit-autofill:focus, 
+.box .inputbox input:-webkit-autofill:active{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent !important;
+    transition: background-color 50000s;
+    -webkit-text-fill-color: #fff !important;
+}
+
+.box .inputbox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.box .inputbox input:focus ~ label,
+.box .inputbox input:valid ~ label {
+    top: -18px;
+    left: 0;
+    color: #0a2541;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#errormsg{
+    color: white;
+}
+
+#errormsg p{
+    margin: 0px;
+    margin-bottom: 15px;
+}
+
+.box .innerbox button,
+.form_btn{
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.02em;
+    font-weight: 600;
+    /* background: #03a9f4; */
+    background-color: #0a2541;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.6s ;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+
+
+#sign:hover{
+    background-color: #0a2541ed;
+}
+
+.box .innerbox button a,
+.form_btn a{
+    text-decoration: none;
+    color: white;
+}
+
+.outbtn_container1 {
+    position: absolute;
+    left: 50%;
+    top: 78%;
+    transform: translate(-50%, -50%);
+}

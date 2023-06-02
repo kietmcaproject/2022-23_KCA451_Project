@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#titleBar{
+    background-color: transparent;
+}
+
+#header_links_container{
+    background-color: transparent;
+}
+
+/* Error Msg */
+
+#error_msg,
+.helptext,
+.errorlist{
+    color: red;
+    margin-left: 10%;
+    white-space: nowrap;
+}
+
+#error_msg ul,
+.helptext ul,
+.errorlist ul{
+    margin-left: 5%;
+}
+
+/* Reg Form */
+
+#reg_form{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#reg_form form{
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 25px;
+    border-radius: 25px;
+    max-width: 680px;
+}
+
+#reg_form th, td{
+    text-align: left;
+    padding: 5px 0px;
+}
+
+#reg_form td input,
+#reg_form td select{
+    height: 35px;
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 3px;
+}
+
+#events{
+    /* border: 2px solid black; */
+    padding: 5px 15px 5px 0px;
+}
+
+#events .events_title{
+    padding: 10px 0px;
+    font-weight: bold;
+}
+
+#events .eventWrapper{
+    display: inline-block;
+    border: 2px solid black;
+    padding: 10px 30px;
+    margin: 10px;
+}
+
+#events .total_fees_container label, 
+#events .total_fees_container #fee_amount
+{
+    display: inline;
+}
+
+#submit_box{
+    display: flex;
+    align-items: center;
+}
+
+#submit {
+    width: 150px;
+    height: 50px;
+    font-size: 120%;
+    border-radius: 0;
+    /* background-image: linear-gradient(to right, #4867e0 60%, #329fec); */
+    background-color: #0a2541;
+    border: none;
+    color: white;
+    margin: 30px auto;   
+    transition: all 0.5s linear;
+}
+
+#submit:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}

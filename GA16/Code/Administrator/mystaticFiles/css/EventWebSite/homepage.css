@@ -1,0 +1,101 @@
+/*===== General ======*/
+.middle_content{
+    padding: 10px 20px;
+}
+
+/*===== Main Image =====*/
+
+#main_image img{
+    width: 100%;
+    height: auto;
+    max-height: 750px;
+}
+
+/*===== news =====*/
+#news{
+    background-color: wheat;
+    /* padding: 10px 30px; */
+}
+
+#news ul{
+    list-style: square;
+}
+
+#news ul li{
+    padding: 7px 5px;
+}
+
+#news ul li a{    
+    text-decoration: none;
+    color: #000000;
+}
+
+/*================== About Us ====================*/
+
+.aboutus_title {
+    text-align: center;
+    font-size: 50px;
+    color: #696969;
+}
+
+#aboutus_content{
+    font-size: 25px;
+    color:black;
+    text-align: center;
+}
+
+/*====sponsers====*/
+
+#sponsers{
+    margin-top: 50px;
+}
+
+.sponsers_title {
+    text-align: center;
+    font-size: 50px;
+    color: #696969;
+}
+
+.sponsers_container {
+	background: #FFFFFF;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center; 
+}
+
+.sponser_item img{
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    padding: 30px 70px;
+}
+
+/*======================Contact=======================*/
+
+#contact_us_container hr{
+    border-style: solid;
+    border-width: 3px;
+    margin-left: 5px;
+}
+
+.contact_us_container {
+    background-color: #0652DD;
+    padding: 20px 50px;
+    color: #fff;
+}
+
+.contact_data{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact {
+    background-color: #0652DD;
+}
+
+.linkedin {
+    text-decoration: none;
+    color: white;
+}
+

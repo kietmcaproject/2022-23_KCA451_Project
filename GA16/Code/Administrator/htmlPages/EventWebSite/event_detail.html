@@ -1,0 +1,52 @@
+{% extends 'EventWebSite/base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+    <title>KIET|Events</title>
+
+{% endblock %}
+
+{% block loadcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/EventWebSite/event_detail1.css' %}">
+    <style>
+        .event_title_container{
+            background-image: url("{% static 'media/event_title.jpg' %}");
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    
+<div class="event_title_container">
+    <p id="event_detail">Events</p>
+</div>
+<br>
+
+<form id="event_search" method="GET">
+    {% csrf_token %}
+    <input class="textbox" type="text" name="q" placeholder="Search event">
+    <button class="submitbtn" type="submit">Search</button>
+    <button class="submitbtn">
+        <a href="{% url 'event_detail' %}">Clear Search</a>
+    </button>
+</form>
+
+<div class="event_container">
+    {% for event in event_list %}    
+        <div class="eventbox">
+            <img src="{{ event.event_logo.url }}" height="300px" width="300px">
+            <p class="title">{{event.event_name}}</p>
+            <p>{{event.event_detail}}</p>
+            <p><span class="label">Rules:</span> {{event.rules}}</p>
+            <p><span class="label">Fees:</span> {{event.fees}}</p>
+            <p><span class="label">Status:</span> {{event.event_status}}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block loadScript %}
+
+{% endblock %}

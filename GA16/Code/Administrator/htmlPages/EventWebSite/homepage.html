@@ -1,0 +1,226 @@
+{% extends 'EventWebSite/base.html' %} {% load static %} {% block loadcss %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/EventWebSite/homepage1.css' %}"
+/>
+
+{% endblock %} {% block title %}
+
+<title>KIET</title>
+
+{% endblock %} {% block content %}
+
+<div id="main_image">
+  <img src="{% static 'media/kiet.png' %}" alt="slideshow Image 1" />
+</div>
+
+<div id="news" class="middle_content">
+  <h3>Announcements</h3>
+  <ul>
+    {% for n in news %} {% if n.hyperlink %}
+    <li><a href="{{n.hyperlink}}">{{n.news_content}}</a></li>
+    {% else %}
+    <li>{{n.news_content}}</li>
+    {% endif %} {% endfor %}
+  </ul>
+</div>
+
+<div id="aboutus4" class="middle_content">
+  <p class="aboutus_title" id="aboutus">About Us</p>
+
+  <p id="aboutus_content">
+    KIET Group of Institutions is recognized as one of the best engineering
+    colleges in Delhi-NCR. Founded by the members of Krishna Charitable Society
+    in 1998 with a modest number of 180 students, KIET Group of Institutions has
+    now become a pioneer in the technical education domain with a strength of
+    6800+ students. With a rich alumni base of 19000 + students spread in all
+    the nooks and corners of the world, KIET Group of Institutions is moving
+    efficiently towards its vision of shaping young minds with skill-oriented &
+    value based education as these alumni serve the dual purpose of mentoring
+    the present students, as well as opening new doors for them. The institute
+    has gained a distinct image as an outstanding educational colossal among the
+    technical institutions of Uttar Pradesh, due to its inclination towards
+    innovative and skill-based education. Its consistent belief in 'Achieving
+    High' is aptly reflected in its academics, extracurricular activities and
+    placements. The success of its belief is clearly brought out in the plethora
+    of Education Excellence Awards bagged by the institute. The institute has
+    been accredited by NAAC with Grade 'A+' and its programmes (CSE, ECE, EEE,
+    IT, ME, CE, MCA, MBA and Pharmacy) are NBA accredited..
+  </p>
+</div>
+
+<!-- <div class="about" id="about" name="about">
+			 Intro Item 
+			 <div class="intro_item">
+				<div class="intro_image"><img src="{% static 'media/modi.jpg' %}" alt=""></div>
+				<div class="intro_body">
+					<div class="intro_title">Inaugaration by Chief Minister</div>
+					<div class="intro_subtitle">NuTech was inaugarated by Chief monister Mr. Narendra Modi</div>
+				</div>
+			</div>
+    </div> -->
+
+<div id="sponsers">
+  <div class="sponsers_title">Sponsers</div>
+  <div class="sponsers_container">
+    <div class="sponser_item">
+      <div class="sponser_image">
+        <img src="{% static 'media/hack.jpg' %}" />
+      </div>
+    </div>
+
+    <div class="sponser_item">
+      <div class="sponser_image">
+        <img src="{% static 'media/gfg.jpg' %}" />
+      </div>
+    </div>
+
+    <div class="sponser_item">
+      <div class="sponser_image">
+        <img src="{% static 'media/coding ninja.jpeg' %}" />
+      </div>
+    </div>
+
+    <div class="sponser_item">
+      <div class="sponser_image">
+        <img src="{% static 'media/innogeeks.png' %}" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact_us_container" class="contact_us_container">
+  <div class="contact_tile">
+    <h1>Contact us</h1>
+    <hr color="#fff" width="60px" />
+  </div>
+
+  <div class="contact_data">
+    <div class="contact">
+      <h2><p>Ajay Kumar</p></h2>
+      <h4>
+        <p class="email_contact">ajay.2124mca1132@kiet.edu</p>
+        <p class="contactno_contact">+91 8218070712</p>
+        <p class="linkedin_contact">
+          <a
+            class="linkedin"
+            href="https://www.linkedin.com/in/bhargavprajapati949"
+            >https://www.linkedin.com</a
+          >
+        </p>
+      </h4>
+    </div>
+
+    <div class="contact">
+      <h2><p>Anamika Mani</p></h2>
+      <h4>
+        <p class="email_contact">anamika.2124mca1096@kiet.edu</p>
+        <p class="contactno_contact">+91 8887825514</p>
+        <p class="linkedin_contact">
+          <a
+            class="linkedin"
+            href="https://www.linkedin.com/in/niralpatelia2913"
+            >https://www.linkedin.com</a
+          >
+        </p>
+      </h4>
+    </div>
+    <div class="contact">
+      <h2><p>Harshit Saxena</p></h2>
+      <h4>
+        <p class="email_contact">harshit.2124mca1111@kiet.edu</p>
+        <p class="contactno_contact">+91 8477871939</p>
+        <p class="linkedin_contact">
+          <a
+            class="linkedin"
+            href="https://www.linkedin.com/in/niralpatelia2913"
+            >https://www.linkedin.com</a
+          >
+        </p>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<style>
+  .notice {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+  }
+
+  .notice .main {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  .notice .align_center {
+    text-align: center;
+  }
+
+  .notice .closeNotice {
+    height: unset;
+    width: unset;
+    padding: 8px 25px;
+    border-radius: 10px;
+    font-size: 120%;
+    background-image: linear-gradient(to right, #4867e0 60%, #329fec);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 1140px) {
+    #notice1 {
+      display: block;
+    }
+  }
+  #notice1 {
+    z-index: 10;
+  }
+
+  /* #notice2{
+            display: block;
+        } */
+</style>
+
+<div id="notice1" class="notice">
+  <div class="main">
+    <h1 class="align_center">Notice</h1>
+    <p>
+      This website is only designed for viewing on desktop browsers. So, to have
+      good experience kindly open this on Desktop/Laptop Browser.
+    </p>
+    <div class="align_center">
+      <button onclick="closeNotice1()" id="closeNoticebtn" class="closeNotice">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="notice2" class="notice">
+        <div class="main">
+            <p>For better understanding of project please visit <a href="https://github.com/bhargavprajapati949/EventManagementSystem" target="_blank">Documentation.</a></p>
+            <div class="align_center">
+                <button onclick="closeNotice2()" id="closeNoticebtn" class="closeNotice">Close</button>
+            </div>
+        </div>
+    </div> -->
+
+<script>
+  function closeNotice1() {
+    document.getElementById("notice1").style.display = "none";
+  }
+
+  function closeNotice2() {
+    document.getElementById("notice2").style.display = "none";
+  }
+</script>
+{% endblock %}

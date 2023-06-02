@@ -1,0 +1,282 @@
+{% extends 'Administrator/administrator_base.html'%}
+
+{% load static %}
+
+{% block title %}
+    
+    <title>Events</title>
+
+{% endblock %}
+    
+{% block loadcss %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_manager1.css' %}">
+
+{% endblock%}
+
+{% block content %}
+
+<div class="main">
+    <div class="main_detail_container" id="main_detail_container">
+        
+    {% if eventdetail %}
+
+    <h1><p id="table_title">Event Details</p></h1>
+
+    <div id="formWrapper">
+        <div class="fieldWrapper">
+            <label for="event_id" class="attr">Event Id</label>
+            <p id="event_id" class="value">{{ eventdetail.event_id }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="event_name" class="attr">Event Name</label>
+            <p id="event_name" class="value">{{ eventdetail.event_name }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="event_logo" class="attr">Event Logo</label>
+            <img id="event_logo" src="{{ eventdetail.event_logo.url }}" height="200px" width="200px" class="value">
+        </div>
+        <div class="fieldWrapper">
+            <label for="event_detail" class="attr">Event Detail</label>
+            <p id="event_detail" class="value">{{ eventdetail.event_detail }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="event_rules" class="attr">Rules</label>
+            <p id="event_rules" class="value">{{ eventdetail.rules }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="event_status" class="attr">Event Status</label>
+            <p id="event_status" class="value">{{ eventdetail.event_status }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="venue" class="attr">Venue</label>
+            <p id="venue" class="value">{{ eventdetail.venue }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="date_time" class="attr">Date & Time</label>
+            <p id="date_time" class="value">{{ eventdetail.date_time }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <label for="fees" class="attr">Fees</label>
+            <p id="date_time" class="value">{{ eventdetail.fees }}</p>
+        </div>
+        <div class="fieldWrapper">
+            <a class="small_btn" href="{% url 'event_edit' event_id=eventdetail.event_id %}">Event Edit</a>
+            <a class="small_btn" href="{% url 'event_delete' event_id=eventdetail.event_id %}">Delete Event</a>
+            <a class="small_btn" href="{% url 'event_manager' %}">Back to Event Manager</a>
+        </div>
+    </div>    
+    
+    
+    {% elif addevent_form %}
+    
+        <h1><p id="table_title">Add Event</p></h1>
+
+        <form method="POST" action="{% url 'event_add' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in addevent_form %}
+            <div id="{{ field.label }}Wrapper" class="fieldWrapper">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                <p>{{ field.help_text|safe }}</p>
+                {% endif %}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            {{ form.non_field_errors }}
+            
+            <div class="fieldWrapper">
+                <button type="submit" class="small_btn">Add Event</button>
+                <button class="small_btn">
+                    <a href="{% url 'event_manager' %}">Cancel</a>
+                </button>
+            </div>
+        </form>
+        
+    {% elif editevent_form %}
+        
+        <h1><p id="table_title">Edit Event</p></h1>
+        
+        <form method="POST" enctype="multipart/form-data" id="formWrapper">
+            {% csrf_token %}            
+            <div class="fieldWrapper">
+                <label for="event_id" class="">Event Id</label>
+                <p id="event_id">{{ editevent_form.event_id }}</p>
+            </div>
+                
+            <div class="fieldWrapper">
+                <label for="event_name">Event Name</label>    
+                {{ editevent_form.event_name }}
+            </div>
+            
+            <div class="fieldWrapper">
+                <label for="event_logo">Event Logo</label>
+                <input type="file" name="event_logo" id="{{ eventdetail.event_logo.id_for_label }}" accept="image/*" onchange="changeLogo(this)">
+            </div>
+            <div class="fieldWrapper">
+                <label for="event_logo"></label>
+                <img id="editevent_logo" src="{{ editevent_form.initial.event_logo.url }}">
+            </div>
+
+            <div class="fieldWrapper">
+                <label for="event_detail">Event Detail</label>
+                {{ editevent_form.event_detail }}
+            </div>
+            
+            <div class="fieldWrapper">
+                <label for="event_rules">Rules</label>
+                {{ editevent_form.rules }}
+            </div>
+            
+            <div class="fieldWrapper">
+                <label for="event_status">Event Status</label>
+                {{ editevent_form.event_status }}
+            </div>
+            
+            <div class="fieldWrapper">
+                <label for="venue">Venue</label>
+                {{ editevent_form.venue }}
+            </div>
+            
+            <div class="fieldWrapper">
+                <label for="date_time">Date & Time</label>    
+                {{ editevent_form.date_time }}
+                <span>In YYYY:MM:DD HH:MM:SS Format</span>
+            </div>
+            
+            <div class="fieldWrapper">
+                <label for="fees">Fees</label>    
+                {{ editevent_form.fees }}
+            </div>
+
+            <div class="fieldWrapper">
+                <button type="submit" class="small_btn">Save</button>
+                <button class="small_btn">
+                    <a href="{% url 'event_info' event_id=editevent_id %}">Cancal</a>
+                </button>
+                
+            </div>
+        </form>
+        
+    {% else %}
+        
+        <h1><p id="table_title">Events</p></h1>
+
+        <div class="inline_form">                    
+            <a href="{% url 'event_add' %}" class="inline_form_btn">
+                <img src="{% static 'media/add_logo.png' %}" class="inline_form_btn_logo">
+                Add Event
+            </a>
+            
+            <!-- <div class="search_inbox_container">
+                <input type="text" placeholder="search" id="search_bar">&nbsp;&nbsp;
+            </div>
+            
+            <div class="search_button_container">
+                <button id="search_btn" class="search_btn" type="submit"><img src="{% static 'media/search_logo.png' %}" id="search_logo"></button>&nbsp;&nbsp;
+            </div>
+            
+            <div class="sortby_selection_container">
+                <select id="sort_by_menu" class="sort_by_menu">
+                    <option value="a-z">A-Z</option>
+                    <option value="z-a">Z-A</option>
+                </select>
+            </div> -->
+        </div>
+ 
+        <table id="manage_table" class="manage_table">
+            
+            <tr>
+                <th>Event Id</th>
+                <th>Event Name</th>
+                <th>Event Heads</th>
+                <th>Event Status</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            {% for event in events %}
+            <tr id="{{ n.event_id }}_Record">
+                <td id="{{ n.event_id }}_event_id">{{ event.event_id }}</td>
+                <td id="{{ n.event_id }}_event_name">{{ event.event_name }}</td>
+                <td id="{{ n.event_id }}_event_heads">
+                    {% for event_head in event_heads|get_item:event.event_id %}
+                    <span class="event_tag">{{ event_head.reg_no__committee_id }} - {% if  event_head.isActive %} Active {% else %} Disable {% endif %}</span>
+                    {% endfor %} 
+                </td>
+                <td id="{{ n.event_id }}_event_status">{{ event.event_status }}</td>
+                <td>
+                    <button class="small_btn">
+                        <a href="{% url 'event_info' event_id=event.event_id %}">Details</a>
+                    </button>
+                </td>
+                <td>
+                    <button class="small_btn">
+                        <a href="{% url 'event_participation_list' event_id=event.event_id %}">Participants</a>
+                    </button>
+                </td>
+                <td>
+                    <button class="small_btn">
+                        <a href="{% url 'event_winners_list' event_id=event.event_id %}">Winners</a>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+            
+        {% endif %}
+
+        {% if deleteevent %}
+        <form method="POST">
+            {% csrf_token %}
+            <div id="deleteConfDialogbox">
+                <p id="conftext">Are you sure you want to delete the event "{{ deleteevent }}"</p>
+                <div class="fieldWrapper">
+                    <button type="submit" class="small_btn" id="delete_event_btn">Delete</button>
+                    <button class="small_btn">
+                        <a href="{% url 'event_info' event_id=deleteevent_id %}">Cancal</a>
+                    </button>
+                </div>
+            </div>
+        </form>
+            <!-- <script>
+                document.getElementById("delete_event_btn").addEventListener("click", () => {
+                    let xhr = new XMLHttpRequest()
+ 
+                    const url = "{% url 'event_delete' event_id=deleteevent_id %}"
+
+                    xhr.open('POST', url, true)
+                    
+                    xhr.send();
+                });
+
+            </script> -->
+        
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block loadscript %}
+
+<script>
+    function changeLogo(input){
+        var reader = new FileReader()
+        reader.onload = function(e){
+            document.getElementById('editevent_logo').src = e.target.result
+        }
+        reader.readAsDataURL(input.files[0])        
+    }
+</script>
+
+{% endblock %}
+
+
+
+
+        

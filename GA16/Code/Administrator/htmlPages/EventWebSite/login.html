@@ -1,0 +1,58 @@
+{% extends  'EventWebSite/base.html' %}
+
+{% load static %}
+
+{% block loadcss %}
+    <link rel="stylesheet" href="{% static 'css/login1.css' %}" type="text/css">
+    <style>
+        body{
+            background-image: url("{% static 'media/a3.jpeg' %}");
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    <title>Sign In | KIET</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% endblock %}
+
+{% block content %}
+<div id="reg_form_box" class="box">
+    
+    <p class="box_title">Sign In</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <!-- yelena.belova@gmail.com      user@123 -->
+        <div id="username" class="inputbox innerbox">
+            <input name="usernamefield" type="email" value="" required="required">
+            <label>Email Id</label>
+        </div>
+        
+        <div id="password" class="inputbox innerbox">
+            <input name="passwordfield" type="password" value="" required="required">
+            <label>Password</label>
+        </div>
+        
+        <div id="errormsg" class="innerbox">
+            <!-- <p>Default email and password are provided for Demo purpose</p> -->
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+        </div>
+        
+        <div class="innerbox">                        
+            <button type="submit">Sign In</button>
+        </div>
+    </form>    
+</div>
+
+<!-- <div class="outbtn_container">
+    <a href="register" class="form_btn">REGISTER</a>
+</div> -->
+
+{% endblock %}
+
+{% block loadScript %}
+    
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'Administrator/administrator_base.html'%}
+
+{% load static %}
+
+{% block title %}
+
+<title>Event Head</title>
+
+{% endblock %}
+
+{% block loadcss %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_manager1.css' %}">
+
+{% endblock%}
+
+{% block content %}
+
+<div class="main">
+    <div class="main_detail_container" id="main_detail_container">
+        <h1><p id="table_title">Event Head</p></h1> 
+        
+        
+        <form method="POST" class="inline_form">
+            {% csrf_token %}
+            {% for field in addeventhead_form %}
+            <div class="inlineFieldWrapper">
+                <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                {{field}}
+            </div>
+            {% endfor %}
+            <div class="inlineFieldWrapper">
+                <button class="inline_form_btn" type="submit">
+                    <img src="{% static 'media/add_logo.png' %}" class="inline_form_btn_logo">
+                    Add Event Head
+                </button>
+            </div>
+        </form>
+
+        
+        <table id="manage_table" class="manage_table">
+            <tr>
+                <th>Reg No</th>
+                <th>Committee ID</th>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Email ID</th>
+                <th>Event</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            
+            {% for eventhead in eventhead_list %}
+            <tr>
+                <td>{{eventhead.reg_no}}</td>
+                <td>{{eventhead.reg_no__committee_id}}</td>
+                <td>{{eventhead.reg_no__reg_no__fname}} {{eventhead.reg_no__reg_no__lname}}</td>
+                <td>{{eventhead.reg_no__reg_no__contect_no}}</td>
+                <td>{{eventhead.reg_no__reg_no__email}}</td>
+                <td>{{eventhead.event__event_name}}</td>
+                {% if eventhead.isActive %}
+                <td>Active</td>
+                <td>
+                    <form method="POST" action="{% url 'eventhead_disable' reg_no=eventhead.reg_no event=eventhead.event__event_id %}">
+                        {% csrf_token %}
+                        <button class="small_btn" type="submit">Disable</button>
+                    </form>    
+                </td>
+                {% else %}
+                <td>Disable</td>
+                <td>
+                    <form method="POST" action="{% url 'eventhead_active' reg_no=eventhead.reg_no event=eventhead.event__event_id %}">
+                        {% csrf_token %}
+                        <button class="small_btn" type="submit">Active</button>
+                    </form>    
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}                        
+            
+        </table>
+        
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block loadScript %}
+
+{% endblock %}

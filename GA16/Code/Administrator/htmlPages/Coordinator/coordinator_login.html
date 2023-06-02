@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1141">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'media/fav.ico' type='image/x-icon' %}">
+    <title>Sign In | Tech-Today</title>
+    <link rel="stylesheet" href="{% static 'css/login2.css' %}" type="text/css">
+    <style>
+        body{
+            background-image: url("{% static 'media/a3.jpeg' %}");
+        }
+    </style>
+</head>
+<body>
+        <div id="reg_form_box" class="box">
+                <p id="signin" class="box_title">Coordinator Log In</p>
+        
+                <form method="POST">
+                    {% csrf_token %}
+                    <div id="username" class="inputbox innerbox">
+                        <input type="text" name="email" {% if email %} value="{{ email }}" {% else %} value="steve.rogers@gmail.com" {% endif %} required="required">
+                        <label>Email Id</label>
+                    </div>
+        
+                    <div id="password" class="inputbox innerbox">
+                        <input type="password" name="password" value="manage@123" required="required">
+                        <label>Password</label>
+                    </div>
+                    <div id="errormsg" class="innerbox">
+                    {% if message %}
+                        <p>{{ message }}</p>
+                    {% endif %}
+                    </div>
+                    <div class="innerbox">                        
+                        <button type="submit">Sign In</button>
+                    </div>
+                </form>
+         </div>
+         <div class="outbtn_container1">
+            <button class="form_btn">
+                <a href="{% url 'eventCommittee' %}">Back To Administrative Login</a>
+            </button>
+        </div>
+</body>
+</html>

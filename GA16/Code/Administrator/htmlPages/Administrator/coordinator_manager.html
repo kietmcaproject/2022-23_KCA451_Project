@@ -1,0 +1,105 @@
+{% extends 'Administrator/administrator_base.html'%}
+
+{% load static %}
+
+{% block title %}
+    
+    <title>Co-ordinator</title>
+
+{% endblock %}
+    
+{% block loadcss %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_manager1.css' %}">
+
+{% endblock%}
+
+{% block content %}
+
+<div class="main">
+    <div class="main_detail_container" id="main_detail_container" style="padding-left: 130px; padding-right: 160px;">
+
+        <h1><p id="table_title">Coordinator</p></h1> 
+
+        <form class="inline_form" method="POST">
+            {% csrf_token %}
+            {% for field in addCoordinator_form %}
+            <div class="inlineFieldWrapper">
+                <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                {{field}}
+            </div>
+            {% endfor %}
+            <div class="inlineFieldWrapper">
+                <button class="inline_form_btn" type="submit">
+                    <img src="{% static 'media/add_logo.png' %}" class="inline_form_btn_logo">
+                    Add Coordinator
+                </button>
+            </div>
+        </form>
+        
+        <!-- <div class="inline_form">
+            <div class="inlineFieldWrapper">
+                <input type="text" placeholder="Search">
+            </div>
+            
+            <div class="inlineFieldWrapper">
+                <button class="inline_form_btn" type="submit">
+                    <img src="{% static 'media/search_logo.png' %}" class="inline_form_btn_logo">
+                    Search
+                </button>
+            </div>
+        </div>
+
+        <div class="inline_form">
+            <div class="inlineFieldWrapper">
+                <select>
+                    <option value="" disabled selected>Sort By</option>
+                    <option value="a-z">A-Z</option>
+                    <option value="z-a">Z-A</option>
+                </select>
+            </div>
+        </div> -->
+    
+        <table id="manage_table" class="manage_table">
+            <tr>
+                <th>Reg No</th>
+                <th>Committee ID</th>
+                <th>Name</th>
+                <th>Contact No.</th>
+                <th>Email ID</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+
+            {% for coordinator in coordinator_list %}
+            <tr>
+                <td>{{coordinator.reg_no}}</td>
+                <td>{{coordinator.reg_no__committee_id}}</td>
+                <td>{{coordinator.reg_no__reg_no__fname}} {{coordinator.reg_no__reg_no__lname}}</td>
+                <td>{{coordinator.reg_no__reg_no__contect_no}}</td>
+                <td>{{coordinator.reg_no__reg_no__email}}</td>
+                {% if coordinator.isActive %}
+                <td>Active</td>
+                <td>
+                    <form method="POST" action="{% url 'coordinator_disable' reg_no=coordinator.reg_no %}">
+                        {% csrf_token %}
+                        <button class="small_btn" type="submit">Disable</button>
+                    </form>    
+                </td>
+                {% else %}
+                <td>Disable</td>
+                <td>
+                    <form method="POST" action="{% url 'coordinator_active' reg_no=coordinator.reg_no%}">
+                        {% csrf_token %}
+                        <button class="small_btn" type="submit">Active</button>
+                    </form>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    
+    </div>
+</div>
+
+{% endblock %}

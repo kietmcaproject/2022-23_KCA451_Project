@@ -1,0 +1,68 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="NU-Sports">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=1141">
+    <link rel="shortcut icon" href="{% static 'media/fav.ico' type='image/x-icon' %}">
+    <link rel="stylesheet" href="{% static 'css/EventWebSite/base_participant1.css'%}">
+    {% block loadcss %}
+
+    {% endblock %}
+
+    {% block title %}
+
+    {% endblock %}
+</head>
+
+<body>
+    <div id="titleBar" class="basic">
+        <a href="{% url 'homepage' %}"><img id='logo' src="{% static 'media/Tech.png' %}" alt="NU-Sport Logo"></a>
+        {% if not user.is_authenticated %}
+        
+        <a href="{% url 'eventCommittee' %}"><button id="login_btn" class="submit_btn">Administrative Login</button></a>
+        
+        {% endif %}
+    </div>
+
+    <div class="header_links_container" id="header_links_container">
+        <nav id="navBar">
+            <ul class="navigation">
+                <a id="home" href="{% url 'homepage' %}">Home</a>
+                <a id="about" href="homepage#aboutus">About</a>
+                <a id="event" href="{% url 'event_detail' %}">Events</a>
+                <a id="sponsor" href="homepage#sponsers">Sponsors</a>
+                <a id="contact" href="homepage#contact_us_container">Contact</a>
+            </ul>
+        </nav>
+
+        <div class="login_container">
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                <a href="#"><button type="submit" id="profile_btn" class="submit_btn">Hi, {{user.fname}}</button>
+                <div>
+                    <a href="{% url 'participant_dashboard' %}">Dashborad</a>
+                    <a href="{% url 'profile_participant' %}">Profile</a>
+                    <a href="{% url 'participant_logout' %}">Log Out</a>  
+                </div>
+            </div>
+            {% else %}
+            <a href="{% url 'register' %}"><button type="submit" id="login_btn" class="submit_btn">Register</button></a>
+            <a href="{% url 'participant_login' %}"><button type="submit" id="login_btn" class="submit_btn">Log In</button></a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block loadScript %}
+    
+    {% endblock %}
+</body>
+
+</html>

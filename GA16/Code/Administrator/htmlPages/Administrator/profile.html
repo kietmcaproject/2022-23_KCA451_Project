@@ -1,0 +1,61 @@
+{% extends 'Administrator/administrator_base.html'%}
+
+{% load static %}
+
+{% block title %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block loadcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_manager1.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main_detail_container" id="main_detail_container">
+        <h1><p id="table_title">Profile</p></h1>
+        <div id="formWrapper">
+            <div class="fieldWrapper">
+                <label id="reg_no" class="attribute">Registration No : </label>
+                <p id="reg_no_value" class="value">{{userinfo.reg_no}}</p>
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="name" class="attribute">Name : </label>
+                <p id="name_value" class="value">Ajay Kumar</p>
+                <!-- {{userinfo.fname}} {{userinfo.lname}} -->
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="contect_no" class="attribute">Contact No : </label>
+                <p id="contect_no_value" class="value">{{userinfo.contect_no}}</p>
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="email" class="attribute">Email Id : </label>
+                <p id="email_value" class="value">{{userinfo.email}}</p>
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="clg" class="attribute">College Name : </label>
+                <p id="clg_value" class="value">{{userinfo.clg_id__clg_name}}</p>
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="stream" class="attribute">Stream : </label>
+                <p id="stream_value" class="value">{{userinfo.stream__stream_name}}</p>
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="Committee_id" class="attribute">Committee Id : </label>
+                <p id="Committee_id_value" class="value">{{committeeinfo.committee_id}}</p>
+            </div>
+        
+            <div class="fieldWrapper">
+                <label id="yearOfStudy" class="attribute">Year of Study : </label>
+                <p id="yearOfStudy_value" class="value">{{committeeinfo.yearOfStudy}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

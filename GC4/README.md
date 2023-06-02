@@ -10,6 +10,7 @@ This project is a starting point for a Flutter application.
 
 THE GITHUB link is provided as file is too large to upload on giuthub.
 I have mentioned the github link for the same where the project is already on git.
+https://github.com/Vidushi2047/major_project/tree/developer_branch
 
 A few resources to get you started if this is your first Flutter project:
 

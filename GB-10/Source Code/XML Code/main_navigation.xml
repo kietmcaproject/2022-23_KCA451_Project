@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.app.pepens.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_pickAndDropFragment"
+            app:destination="@id/pickAndDropFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_allCategoriesFragment"
+            app:destination="@id/allCategoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoryBusinessFragment"
+            app:destination="@id/categoryBusinessFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_feedDetailsFragment"
+            app:destination="@id/feedDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shoppingProductsFragment"
+            app:destination="@id/shoppingProductsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_offerFragment"
+            app:destination="@id/offerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantSearchFragment"
+            app:destination="@id/restaurantSearchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shoppingListingFragment"
+            app:destination="@id/shoppingListingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderSuccessFragment"
+            app:destination="@id/orderSuccessFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/mainDialogFragment"
+        android:name="com.app.pepens.fragment.MainDialogFragment"
+        android:label="fragment_main_dialog"
+        tools:layout="@layout/fragment_main_dialog">
+        <action
+            android:id="@+id/action_mainDialogFragment_to_pickAndDropFragment"
+            app:destination="@id/pickAndDropFragment" />
+        <action
+            android:id="@+id/action_mainDialogFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+        <action
+            android:id="@+id/action_mainDialogFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_mainDialogFragment_to_categoryBusinessFragment"
+            app:destination="@id/categoryBusinessFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.app.pepens.fragment.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_feedDetailsFragment"
+            app:destination="@id/feedDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.app.pepens.fragment.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notificationFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+        <action
+            android:id="@+id/action_notificationFragment_to_feedDetailsFragment"
+            app:destination="@id/feedDetailsFragment" />
+        <action
+            android:id="@+id/action_notificationFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_notificationFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+        <action
+            android:id="@+id/action_notificationFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickAndDropFragment"
+        android:name="com.app.pepens.fragment.PickAndDrop.PickAndDropFragment"
+        android:label="fragment_pick_and_drop"
+        tools:layout="@layout/fragment_pick_and_drop" >
+        <action
+            android:id="@+id/action_pickAndDropFragment_to_paymentsFragment"
+            app:destination="@id/paymentsFragment" />
+        <action
+            android:id="@+id/action_pickAndDropFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment" />
+        <action
+            android:id="@+id/action_pickAndDropFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_pickAndDropFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.app.pepens.fragment.ShoppingFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping">
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingSearchFragment"
+            app:destination="@id/shoppingSearchFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingListingFragment"
+            app:destination="@id/shoppingListingFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingProductsFragment"
+            app:destination="@id/shoppingProductsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingCategoriesListFragment"
+            app:destination="@id/shoppingCategoriesListFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingCategoriesFragment"
+            app:destination="@id/shoppingCategoriesFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_productViaTypeFragment"
+            app:destination="@id/productViaTypeFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_feedDetailsFragment"
+            app:destination="@id/feedDetailsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_shoppingFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingSearchFragment"
+        android:name="com.app.pepens.fragment.ShoppingSearchFragment"
+        android:label="fragment_shopping_search"
+        tools:layout="@layout/fragment_shopping_search">
+        <action
+            android:id="@+id/action_shoppingSearchFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.app.pepens.fragment.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail">
+        <action
+            android:id="@+id/action_productDetailFragment_to_shoppingSearchFragment"
+            app:destination="@id/shoppingSearchFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingListingFragment"
+        android:name="com.app.pepens.fragment.ShoppingListingFragment"
+        android:label="fragment_shopping_listing"
+        tools:layout="@layout/fragment_shopping_listing">
+        <action
+            android:id="@+id/action_shoppingListingFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_shoppingListingFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingProductsFragment"
+        android:name="com.app.pepens.fragment.ShoppingProductsFragment"
+        android:label="fragment_shopping_products"
+        tools:layout="@layout/fragment_shopping_products">
+        <action
+            android:id="@+id/action_shoppingProductsFragment_to_shoppingSearchFragment"
+            app:destination="@id/shoppingSearchFragment" />
+        <action
+            android:id="@+id/action_shoppingProductsFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_shoppingProductsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_shoppingProductsFragment_to_shoppingParentFragment"
+            app:destination="@id/shoppingParentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.app.pepens.fragment.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_favoriteBusinessesFragment"
+            app:destination="@id/favoriteBusinessesFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCategoriesListFragment"
+        android:name="com.app.pepens.fragment.ShoppingCategoriesListFragment"
+        android:label="fragment_shopping_categories_list"
+        tools:layout="@layout/fragment_shopping_categories_list">
+        <action
+            android:id="@+id/action_shoppingCategoriesListFragment_to_shoppingProductsFragment"
+            app:destination="@id/shoppingProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCategoriesFragment"
+        android:name="com.app.pepens.fragment.ShoppingCategoriesFragment"
+        android:label="fragment_shopping_categories"
+        tools:layout="@layout/fragment_shopping_categories">
+        <action
+            android:id="@+id/action_shoppingCategoriesFragment_to_shoppingProductsFragment"
+            app:destination="@id/shoppingProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productViaTypeFragment"
+        android:name="com.app.pepens.fragment.ProductViaTypeFragment"
+        android:label="fragment_product_via_type"
+        tools:layout="@layout/fragment_product_via_type" >
+        <action
+            android:id="@+id/action_productViaTypeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_productViaTypeFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeOrderFragment"
+        android:name="com.app.pepens.fragment.PlaceOrderFragment"
+        android:label="fragment_place_order"
+        tools:layout="@layout/fragment_place_order">
+        <action
+            android:id="@+id/action_placeOrderFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_placeOrderFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment" />
+        <action
+            android:id="@+id/action_placeOrderFragment_to_paymentsFragment"
+            app:destination="@id/paymentsFragment" />
+        <action
+            android:id="@+id/action_placeOrderFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingParentFragment"
+        android:name="com.app.pepens.fragment.ShoppingParentFragment"
+        android:label="fragment_shopping_parent"
+        tools:layout="@layout/fragment_shopping_parent">
+        <action
+            android:id="@+id/action_shoppingParentFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressListFragment"
+        android:name="com.app.pepens.fragment.AddressListFragment"
+        android:label="fragment_address_list"
+        tools:layout="@layout/fragment_address_list">
+        <action
+            android:id="@+id/action_addressListFragment_to_addUpdateAddressFragment"
+            app:destination="@id/addUpdateAddressFragment" />
+        <action
+            android:id="@+id/action_addressListFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_addressListFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+        <action
+            android:id="@+id/action_addressListFragment_to_placeRestaurantOrderFragment"
+            app:destination="@id/placeRestaurantOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentsFragment"
+        android:name="com.app.pepens.fragment.PaymentsFragment"
+        android:label="fragment_payments"
+        tools:layout="@layout/fragment_payments">
+        <action
+            android:id="@+id/action_paymentsFragment_to_orderSuccessFragment"
+            app:destination="@id/orderSuccessFragment" />
+        <action
+            android:id="@+id/action_paymentsFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderSuccessFragment"
+        android:name="com.app.pepens.fragment.OrderSuccessFragment"
+        android:label="fragment_order_success"
+        tools:layout="@layout/fragment_order_success">
+        <action
+            android:id="@+id/action_orderSuccessFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment"
+            app:popUpTo="@id/shoppingFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_orderSuccessFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_orderSuccessFragment_to_restaurantSearchFragment"
+            app:destination="@id/restaurantSearchFragment" />
+        <action
+            android:id="@+id/action_orderSuccessFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_orderSuccessFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteBusinessesFragment"
+        android:name="com.app.pepens.fragment.FavoriteBusinessesFragment"
+        android:label="fragment_favorite_businesses"
+        tools:layout="@layout/fragment_favorite_businesses">
+        <action
+            android:id="@+id/action_favoriteBusinessesFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_favoriteBusinessesFragment_to_offerListFragment"
+            app:destination="@id/offerListFragment" />
+        <action
+            android:id="@+id/action_favoriteBusinessesFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.app.pepens.fragment.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders">
+        <action
+            android:id="@+id/action_ordersFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardsFragment"
+        android:name="com.app.pepens.fragment.RewardsFragment"
+        android:label="fragment_rewards"
+        tools:layout="@layout/fragment_rewards">
+        <action
+            android:id="@+id/action_rewardsFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_rewardsFragment_to_sendGiftFragment"
+            app:destination="@id/sendGiftFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/referralFragment"
+        android:name="com.app.pepens.fragment.ReferralFragment"
+        android:label="fragment_referral"
+        tools:layout="@layout/fragment_referral">
+        <action
+            android:id="@+id/action_referralFragment_to_sendGiftFragment"
+            app:destination="@id/sendGiftFragment" />
+        <action
+            android:id="@+id/action_referralFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUpdateAddressFragment"
+        android:name="com.app.pepens.fragment.AddUpdateAddressFragment"
+        android:label="fragment_add_update_address"
+        tools:layout="@layout/fragment_add_update_address">
+        <action
+            android:id="@+id/action_addUpdateAddressFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_addUpdateAddressFragment_to_placeRestaurantOrderFragment"
+            app:destination="@id/placeRestaurantOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryBusinessDetailsFragment"
+        android:name="com.app.pepens.fragment.CategoryBusinessDetailsFragment"
+        android:label="fragment_category_business_details"
+        tools:layout="@layout/fragment_category_business_details" >
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_offerListFragment"
+            app:destination="@id/offerListFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_allProductsFragment"
+            app:destination="@id/allProductsFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_shoppingSearchFragment"
+            app:destination="@id/shoppingSearchFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessDetailsFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.app.pepens.fragment.OrderDetailsFragment"
+        android:label="fragment_order_details"
+        tools:layout="@layout/fragment_order_details" >
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_trackOrderFragment"
+            app:destination="@id/trackOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendGiftFragment"
+        android:name="com.app.pepens.fragment.SendGiftFragment"
+        android:label="fragment_send_gift"
+        tools:layout="@layout/fragment_send_gift" />
+    <fragment
+        android:id="@+id/allCategoriesFragment"
+        android:name="com.app.pepens.fragment.AllCategoriesFragment"
+        android:label="fragment_all_categories"
+        tools:layout="@layout/fragment_all_categories" >
+        <action
+            android:id="@+id/action_allCategoriesFragment_to_categoryBusinessFragment"
+            app:destination="@id/categoryBusinessFragment" />
+        <action
+            android:id="@+id/action_allCategoriesFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryBusinessFragment"
+        android:name="com.app.pepens.fragment.CategoryBusinessFragment"
+        android:label="fragment_category_business"
+        tools:layout="@layout/fragment_category_business" >
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_restaurantSearchFragment"
+            app:destination="@id/restaurantSearchFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_offerListFragment"
+            app:destination="@id/offerListFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <action
+            android:id="@+id/action_categoryBusinessFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.app.pepens.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_categoryBusinessFragment"
+            app:destination="@id/categoryBusinessFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantSearchFragment"
+            app:destination="@id/restaurantSearchFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.app.pepens.fragment.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryBusinessFragment"
+            app:destination="@id/categoryBusinessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedDetailsFragment"
+        android:name="com.app.pepens.fragment.FeedDetailsFragment"
+        android:label="fragment_feed_details"
+        tools:layout="@layout/fragment_feed_details" >
+        <action
+            android:id="@+id/action_feedDetailsFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offerDetailsFragment"
+        android:name="com.app.pepens.fragment.OfferDetailsFragment"
+        android:label="fragment_offer_details"
+        tools:layout="@layout/fragment_offer_details" >
+        <action
+            android:id="@+id/action_offerDetailsFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailsFragment"
+        android:name="com.app.pepens.fragment.Restaurants.RestaurantDetailsFragment"
+        android:label="fragment_restaurant_details"
+        tools:layout="@layout/fragment_restaurant_details" >
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_placeRestaurantOrderFragment"
+            app:destination="@id/placeRestaurantOrderFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_addUpdateAddressFragment"
+            app:destination="@id/addUpdateAddressFragment" />
+        <action
+            android:id="@+id/action_restaurantDetailsFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offerListFragment"
+        android:name="com.app.pepens.fragment.OfferListFragment"
+        android:label="fragment_offer_list"
+        tools:layout="@layout/fragment_offer_list" >
+        <action
+            android:id="@+id/action_offerListFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offerFragment"
+        android:name="com.app.pepens.fragment.OfferFragment"
+        android:label="fragment_offer"
+        tools:layout="@layout/fragment_offer" >
+        <action
+            android:id="@+id/action_offerFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+        <action
+            android:id="@+id/action_offerFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_offerFragment_to_offerListFragment"
+            app:destination="@id/offerListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantsFragment"
+        android:name="com.app.pepens.fragment.Restaurants.RestaurantsFragment"
+        android:label="fragment_restaurants"
+        tools:layout="@layout/fragment_restaurants" >
+        <action
+            android:id="@+id/action_restaurantsFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_restaurantSearchFragment"
+            app:destination="@id/restaurantSearchFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_placeRestaurantOrderFragment"
+            app:destination="@id/placeRestaurantOrderFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_categoryBusinessDetailsFragment"
+            app:destination="@id/categoryBusinessDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_offerDetailsFragment"
+            app:destination="@id/offerDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_feedDetailsFragment"
+            app:destination="@id/feedDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_restaurantsFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantSearchFragment"
+        android:name="com.app.pepens.fragment.Restaurants.RestaurantSearchFragment"
+        android:label="fragment_restaurant_search"
+        tools:layout="@layout/fragment_restaurant_search" >
+        <action
+            android:id="@+id/action_restaurantSearchFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeRestaurantOrderFragment"
+        android:name="com.app.pepens.fragment.Restaurants.PlaceRestaurantOrderFragment"
+        android:label="fragment_place_restaurant_order"
+        tools:layout="@layout/fragment_place_restaurant_order" >
+        <action
+            android:id="@+id/action_placeRestaurantOrderFragment_to_restaurantDetailsFragment"
+            app:destination="@id/restaurantDetailsFragment" />
+        <action
+            android:id="@+id/action_placeRestaurantOrderFragment_to_addressListFragment"
+            app:destination="@id/addressListFragment" />
+        <action
+            android:id="@+id/action_placeRestaurantOrderFragment_to_paymentsFragment"
+            app:destination="@id/paymentsFragment" />
+        <action
+            android:id="@+id/action_placeRestaurantOrderFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.app.pepens.fragment.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/allProductsFragment"
+        android:name="com.app.pepens.fragment.AllProductsFragment"
+        android:label="fragment_all_products"
+        tools:layout="@layout/fragment_all_products" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.app.pepens.fragment.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.app.pepens.fragment.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating" />
+    <fragment
+        android:id="@+id/trackOrderFragment"
+        android:name="com.app.pepens.fragment.TrackOrderFragment"
+        android:label="fragment_track_order"
+        tools:layout="@layout/fragment_track_order" />
+</navigation>

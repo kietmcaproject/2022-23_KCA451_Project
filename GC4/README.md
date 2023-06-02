@@ -1,10 +1,15 @@
-# flash_chat
+# KIET_EVENT_MANAGEMENT_APP
 
 A new Flutter project.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+
+
+
+THE GITHUB link is provided as file is too large to upload on giuthub.
+I have mentioned the github link for the same where the project is already on git.
 
 A few resources to get you started if this is your first Flutter project:
 

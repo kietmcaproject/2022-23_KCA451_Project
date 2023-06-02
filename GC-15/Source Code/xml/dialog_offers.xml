@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/image_picker_bg"
+    android:paddingBottom="@dimen/sixteen_dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:text="Flat 10% for restaurants"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/sixteen_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:src="@drawable/ic_round_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOfferCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:background="@drawable/placeholder_view"
+        android:paddingStart="@dimen/sixteen_dp"
+        android:paddingTop="@dimen/sixteen_dp"
+        android:paddingEnd="@dimen/eighty_dp"
+        android:paddingBottom="@dimen/sixteen_dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/sixteen_dp"
+        android:text="COPY"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOfferCode"
+        app:layout_constraintEnd_toEndOf="@+id/tvOfferCode"
+        app:layout_constraintTop_toTopOf="@+id/tvOfferCode" />
+
+    <TextView
+        android:id="@+id/tvExpireText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:drawableLeft="@drawable/ic_date"
+        android:drawablePadding="@dimen/eight_dp"
+        android:text="Expires on"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOfferCode" />
+
+    <TextView
+        android:id="@+id/tvExpire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvExpireText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvExpireText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpireText" />
+
+    <TextView
+        android:id="@+id/tvAvailableForText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:drawableLeft="@drawable/ic_round_business"
+        android:drawablePadding="@dimen/eight_dp"
+        android:text="Available for"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpireText" />
+
+    <TextView
+        android:id="@+id/tvAvailableFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAvailableForText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvAvailableForText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAvailableForText" />
+
+    <TextView
+        android:id="@+id/tvMinimumOrderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:drawableLeft="@drawable/ic_round_business"
+        android:drawablePadding="@dimen/eight_dp"
+        android:text="Minimum Order Amount"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAvailableForText" />
+
+    <TextView
+        android:id="@+id/tvMinimumOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMinimumOrderText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvMinimumOrderText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMinimumOrderText" />
+
+    <TextView
+        android:id="@+id/tvMaximumOrderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:drawableLeft="@drawable/ic_round_business"
+        android:drawablePadding="@dimen/eight_dp"
+        android:text="Maximum Discount Amount"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMinimumOrderText" />
+
+    <TextView
+        android:id="@+id/tvMaximumOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMaximumOrderText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvMaximumOrderText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMaximumOrderText" />
+
+    <TextView
+        android:id="@+id/tvOfferText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:drawableLeft="@drawable/ic_info"
+        android:drawablePadding="@dimen/eight_dp"
+        android:text="Order Details"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMaximumOrderText" />
+
+    <ImageView
+        android:id="@+id/ivDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOfferText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvOfferText" />
+
+    <ImageView
+        android:id="@+id/ivUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:src="@drawable/ic_arrow_up"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOfferText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvOfferText" />
+
+    <TextView
+        android:id="@+id/tvOffer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/forty_dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOfferText" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOffer" />
+
+    <TextView
+        android:id="@+id/tvAvailableOnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:drawableLeft="@drawable/ic_discount"
+        android:drawablePadding="@dimen/eight_dp"
+        android:drawableTint="@color/colorIcon"
+        android:text="Avail Offer On"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOffer" />
+
+    <TextView
+        android:id="@+id/tvAvailableOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:text="Available on all restaurants"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAvailableOnText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvAvailableOnText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOffers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:padding="@dimen/eight_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="260dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAvailableOnText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

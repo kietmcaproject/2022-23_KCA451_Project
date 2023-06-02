@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/materialCardView"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/four_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/fifty_six_dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/fifty_six_dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="@dimen/fifty_six_dp"
+                android:layout_marginStart="@dimen/eight_dp"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/sixteen_sp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/twenty_sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/eight_dp"
+                android:layout_marginEnd="@dimen/eight_dp"
+                android:background="@drawable/search_bg"
+                android:hint="Search"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:paddingStart="@dimen/forty_dp"
+                android:paddingTop="@dimen/eight_dp"
+                android:paddingEnd="@dimen/forty_dp"
+                android:paddingBottom="@dimen/eight_dp"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivSearchBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/eight_dp"
+                android:src="@drawable/ic_back"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+                app:layout_constraintStart_toStartOf="@+id/etSearch"
+                app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+            <ImageView
+                android:id="@+id/ivSearchCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/eight_dp"
+                android:src="@drawable/ic_close_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+                app:layout_constraintEnd_toEndOf="@+id/etSearch"
+                app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/sixteen_sp"
+        android:paddingTop="0dp"
+        android:paddingEnd="@dimen/sixteen_sp"
+        android:paddingBottom="@dimen/eight_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/twenty_four_dp"
+        android:drawableTop="@drawable/ic_network_error"
+        android:drawablePadding="@dimen/eight_dp"
+        android:drawableTint="@color/extraLightGrey"
+        android:text="Network error please try again"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btnRefresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRefresh"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refresh Page"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/eight_dp"
+    android:paddingStart="@dimen/eight_dp"
+    android:paddingEnd="@dimen/eight_dp">
+
+    <ImageView
+        android:id="@+id/ivDate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/colorIcon" />
+
+    <TextView
+        android:id="@+id/tvTimeSlot"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/fourteen_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSlotTitle"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/ten_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimeSlot" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/materialCardView"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/four_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/fifty_six_dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="@dimen/fifty_six_dp"
+                android:layout_marginStart="@dimen/eight_dp"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/sixteen_sp"
+                android:text="Filter"
+                android:textColor="@color/white"
+                android:textSize="@dimen/twenty_sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/etSearchFilter"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/eight_dp"
+        android:background="@drawable/et_search_bg"
+        android:hint="Search Brands"
+        android:visibility="gone"
+        android:paddingStart="@dimen/eight_dp"
+        android:paddingTop="@dimen/eight_dp"
+        android:paddingEnd="@dimen/eight_dp"
+        android:paddingBottom="@dimen/eight_dp"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layoutFilter"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFiltersListing"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layoutFilter"
+        app:layout_constraintTop_toBottomOf="@+id/etSearchFilter" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutFilter"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/zero_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintBottom_toTopOf="@+id/viewBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <TextView
+            android:id="@+id/tvCategories"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/eight_dp"
+            android:text="Categories"
+            android:textColor="@color/colorText"
+            android:textStyle="bold"
+            android:textSize="@dimen/fourteen_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSubCategories"
+            android:layout_width="@dimen/zero_dp"
+            android:textStyle="bold"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/eight_dp"
+            android:text="Sub Categories"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/fourteen_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategories" />
+
+        <TextView
+            android:id="@+id/tvCatNot"
+            android:layout_width="@dimen/eight_dp"
+            android:layout_height="@dimen/eight_dp"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            android:background="@drawable/btn_bg"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSubCategories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSubCategories" />
+
+        <TextView
+            android:id="@+id/tvBrands"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:padding="@dimen/eight_dp"
+            android:text="Brands"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/fourteen_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubCategories" />
+
+        <TextView
+            android:id="@+id/tvBrandsNot"
+            android:layout_width="@dimen/eight_dp"
+            android:layout_height="@dimen/eight_dp"
+            android:layout_marginEnd="@dimen/sixteen_dp"
+            android:background="@drawable/btn_bg"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBrands"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvBrands" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategories" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubCategories" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBrands" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="@dimen/zero_dp"
+            android:background="@color/lightGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/viewBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:background="@color/lightGrey"
+        app:layout_constraintBottom_toTopOf="@+id/tvPriceRange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPriceRange"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:text="Price Range"
+        android:textColor="@color/colorText"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:text="₹0"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/ten_sp"
+        app:layout_constraintStart_toStartOf="@+id/seekBarPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceRange" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/four_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:text="₹99999"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/ten_sp"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvPriceRange" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/seekBarPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/eight_dp"
+        android:contentDescription="@string/app_name"
+        android:stepSize="4999.95"
+        android:valueFrom="0"
+        android:valueTo="99999"
+        app:layout_constraintBottom_toTopOf="@+id/btnApply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:values="@array/initial_slider_values" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnApply"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:text="Apply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClear"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:layout_marginBottom="@dimen/eight_dp"
+        android:text="Clear"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnApply" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

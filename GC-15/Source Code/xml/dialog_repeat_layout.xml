@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/sixteen_dp"
+    android:background="@drawable/plain_dialog_bg"
+    android:elevation="@dimen/sixteen_dp"
+    android:paddingStart="@dimen/eight_dp"
+    android:paddingEnd="@dimen/eight_dp"
+    android:paddingBottom="@dimen/sixteen_dp">
+
+    <TextView
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="@dimen/zero_dp"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:text="Repeat last used customisation"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/fourteen_sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivClose"
+        app:layout_constraintEnd_toStartOf="@+id/ivClose"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/eight_dp"
+        android:paddingTop="@dimen/sixteen_dp"
+        android:paddingEnd="@dimen/eight_dp"
+        android:paddingBottom="@dimen/eight_dp"
+        android:src="@drawable/ic_round_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:gravity="start"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/fourteen_sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v1" />
+
+    <TextView
+        android:id="@+id/tvProductVariant"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:gravity="start"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+
+    <TextView
+        android:id="@+id/tvProductAddOns"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:gravity="start"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductVariant" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddNew"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:layout_marginEnd="@dimen/four_dp"
+        android:text="Add new"
+        app:layout_constraintEnd_toStartOf="@+id/btnRepeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductAddOns" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRepeat"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/four_dp"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:text="Repeat Last"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAddNew"
+        app:layout_constraintTop_toBottomOf="@+id/tvProductAddOns" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

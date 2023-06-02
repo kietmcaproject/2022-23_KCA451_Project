@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/eight_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDefault"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:background="@drawable/view_bg2"
+        android:paddingStart="@dimen/eight_dp"
+        android:paddingTop="@dimen/two_dp"
+        android:paddingEnd="@dimen/eight_dp"
+        android:paddingBottom="@dimen/two_dp"
+        android:text="Default"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/ten_sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvType"
+        app:layout_constraintStart_toEndOf="@+id/tvType"
+        app:layout_constraintTop_toTopOf="@+id/tvType" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:paddingBottom="@dimen/eight_dp"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvType" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEdit"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/forty_dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:text="Edit"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDelete"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/forty_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:text="Delete"
+        android:textSize="@dimen/twelve_sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+    <View
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:background="@color/extraLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

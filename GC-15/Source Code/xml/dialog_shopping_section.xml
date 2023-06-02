@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight_dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="@dimen/eight_dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/dialog_background"
+        android:paddingStart="@dimen/twenty_four_dp"
+        android:paddingTop="@dimen/eight_dp"
+        android:paddingEnd="@dimen/twenty_four_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/sixteen_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            android:paddingEnd="@dimen/sixteen_dp"
+            android:paddingBottom="@dimen/sixteen_dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivRestaurant"
+                android:layout_width="@dimen/seventy_dp"
+                android:layout_height="@dimen/seventy_dp"
+                android:background="@drawable/hc1_background"
+                android:padding="@dimen/sixteen_dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:gravity="center"
+                android:text="Restaurants"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivRestaurant" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clGrocery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/sixteen_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            android:paddingEnd="@dimen/sixteen_dp"
+            android:paddingBottom="@dimen/sixteen_dp"
+            app:layout_constraintStart_toEndOf="@+id/clRestaurant"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivGrocery"
+                android:layout_width="@dimen/seventy_dp"
+                android:layout_height="@dimen/seventy_dp"
+                android:background="@drawable/hc1_background"
+                android:padding="@dimen/sixteen_dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:gravity="center"
+                android:text="Grocery"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivGrocery" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPickDrop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/sixteen_dp"
+            android:paddingStart="@dimen/sixteen_dp"
+            android:paddingEnd="@dimen/sixteen_dp"
+            android:paddingBottom="@dimen/sixteen_dp"
+            app:layout_constraintStart_toEndOf="@+id/clGrocery"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivPickDrop"
+                android:layout_width="@dimen/seventy_dp"
+                android:layout_height="@dimen/seventy_dp"
+                android:background="@drawable/hc1_background"
+                android:padding="@dimen/sixteen_dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:gravity="center"
+                android:text="Pick Drop"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivPickDrop" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/dialog_background"
+        android:gravity="center"
+        android:paddingStart="@dimen/sixteen_dp"
+        android:paddingEnd="@dimen/sixteen_dp"
+        android:text="Shopping"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/fourteen_sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/layout"
+        app:layout_constraintStart_toStartOf="@+id/layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="90"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/ic_triangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/layout"
+        app:layout_constraintStart_toStartOf="@+id/layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

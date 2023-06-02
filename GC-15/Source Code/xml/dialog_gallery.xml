@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    app:cardCornerRadius="@dimen/zero_dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_six_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="@dimen/zero_dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/sixteen_dp"
+                android:layout_marginEnd="@dimen/sixteen_dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/sixteen_sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/eight_dp"
+                android:padding="@dimen/eight_dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cardView"
+                app:tint="@color/black" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardView"
+                android:layout_width="@dimen/forty_dp"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/eight_dp"
+                android:background="@color/white"
+                app:cardCornerRadius="@dimen/twenty_dp"
+                app:cardElevation="@dimen/zero_dp"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    app:cardCornerRadius="23dp">
+
+                    <ImageView
+                        android:id="@+id/ivProfilePic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/zero_dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerViewImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/right_btn_bg"
+            android:paddingStart="@dimen/four_dp"
+            android:paddingTop="@dimen/eight_dp"
+            android:paddingEnd="@dimen/four_dp"
+            android:paddingBottom="@dimen/eight_dp"
+            android:src="@drawable/ic_arrow_right"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/webView"
+            app:layout_constraintEnd_toEndOf="@+id/webView"
+            app:layout_constraintTop_toTopOf="@+id/webView"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/ivLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left_btn_bg"
+            android:paddingStart="@dimen/four_dp"
+            android:paddingTop="@dimen/eight_dp"
+            android:paddingEnd="@dimen/four_dp"
+            android:paddingBottom="@dimen/eight_dp"
+            android:src="@drawable/ic_arrow_left"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/webView"
+            app:layout_constraintStart_toStartOf="@+id/webView"
+            app:layout_constraintTop_toTopOf="@+id/webView"
+            app:tint="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerViewImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <com.borjabravo.readmoretextview.ReadMoreTextView
+            android:id="@+id/textView"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:background="#CC000000"
+            android:padding="@dimen/sixteen_dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/fourteen_sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerViewImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewImages"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
